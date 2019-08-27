@@ -1,5 +1,5 @@
 //
-//  UITableViewCell+Extensions.swift
+//  UICollectionViewCell+Extensions.swift
 //  SearchAndStoreAlbums
 //
 //  Created by Dimic Milos on 8/27/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UITableViewCell {
+extension UICollectionViewCell {
     
     open class func reuseIdentifier() -> String {
         let descriptionParts = description().split(separator: ".")

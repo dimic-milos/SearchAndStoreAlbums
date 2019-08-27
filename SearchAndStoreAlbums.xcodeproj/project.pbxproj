@@ -26,6 +26,13 @@
 		E93F3E9D2315990D0098F16C /* LocalAlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E9B2315990D0098F16C /* LocalAlbumsViewController.swift */; };
 		E93F3E9E2315990D0098F16C /* LocalAlbumsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93F3E9C2315990D0098F16C /* LocalAlbumsViewController.xib */; };
 		E93F3EA223159D610098F16C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3EA123159D610098F16C /* Album.swift */; };
+		E93F3EA423159F9C0098F16C /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3EA323159F9C0098F16C /* UICollectionViewCell+Extensions.swift */; };
+		E93F3EAA2315A1130098F16C /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E93F3EA92315A1130098F16C /* HeaderView.xib */; };
+		E93F3EAC2315A1410098F16C /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3EAB2315A1410098F16C /* HeaderView.swift */; };
+		E93F3EAE2315A2670098F16C /* HeaderViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3EAD2315A2670098F16C /* HeaderViewDelegate.swift */; };
+		E9BE1D722315A5C700F45FCD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D712315A5C700F45FCD /* RoundedButton.swift */; };
+		E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D752315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift */; };
+		E9BE1D782315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D762315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib */; };
 		E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E42E231583A8006A9F74 /* AppDelegate.swift */; };
 		E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E432231583A8006A9F74 /* Main.storyboard */; };
 		E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */; };
@@ -66,6 +73,13 @@
 		E93F3E9B2315990D0098F16C /* LocalAlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAlbumsViewController.swift; sourceTree = "<group>"; };
 		E93F3E9C2315990D0098F16C /* LocalAlbumsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocalAlbumsViewController.xib; sourceTree = "<group>"; };
 		E93F3EA123159D610098F16C /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		E93F3EA323159F9C0098F16C /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		E93F3EA92315A1130098F16C /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		E93F3EAB2315A1410098F16C /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		E93F3EAD2315A2670098F16C /* HeaderViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewDelegate.swift; sourceTree = "<group>"; };
+		E9BE1D712315A5C700F45FCD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		E9BE1D752315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlbumInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E9BE1D762315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicAlbumInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		E9C1E42B231583A8006A9F74 /* SearchAndStoreAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAndStoreAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C1E42E231583A8006A9F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C1E433231583A8006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -186,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				E93F3E98231597340098F16C /* Persister.swift */,
+				E93F3EAD2315A2670098F16C /* HeaderViewDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -193,10 +208,11 @@
 		E93F3E772315909E0098F16C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */,
-				E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */,
-				E93F3E7C231591090098F16C /* UIView+Extensions.swift */,
 				E93F3E7E2315912D0098F16C /* OSLog+Extensions.swift */,
+				E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */,
+				E93F3E7C231591090098F16C /* UIView+Extensions.swift */,
+				E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */,
+				E93F3EA323159F9C0098F16C /* UICollectionViewCell+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -255,6 +271,48 @@
 			path = Album;
 			sourceTree = "<group>";
 		};
+		E93F3EA52315A08F0098F16C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E93F3EA62315A0BD0098F16C /* HeaderView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E93F3EA62315A0BD0098F16C /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				E93F3EAB2315A1410098F16C /* HeaderView.swift */,
+				E93F3EA92315A1130098F16C /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		E9BE1D702315A5B400F45FCD /* RoundedButton */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D712315A5C700F45FCD /* RoundedButton.swift */,
+			);
+			path = RoundedButton;
+			sourceTree = "<group>";
+		};
+		E9BE1D732315A85400F45FCD /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D742315A86500F45FCD /* BasicAlbumInfoCollectionViewCell */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		E9BE1D742315A86500F45FCD /* BasicAlbumInfoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D752315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift */,
+				E9BE1D762315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib */,
+			);
+			path = BasicAlbumInfoCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		E9C1E422231583A8006A9F74 = {
 			isa = PBXGroup;
 			children = (
@@ -279,7 +337,8 @@
 		E9C1E42D231583A8006A9F74 /* SearchAndStoreAlbums */ = {
 			isa = PBXGroup;
 			children = (
-				E93F3E9F23159D4D0098F16C /* Models */,
+				E9BE1D732315A85400F45FCD /* CollectionViewCells */,
+				E93F3E7423158FAC0098F16C /* Storyboards */,
 				E93F3E7323158F7B0098F16C /* Application */,
 				E93F3E75231590590098F16C /* CoreData */,
 				E93F3E87231591EA0098F16C /* Coordinators */,
@@ -287,7 +346,9 @@
 				E93F3E802315915A0098F16C /* NetworkingService */,
 				E93F3E772315909E0098F16C /* Extensions */,
 				E93F3E76231590910098F16C /* Protocols */,
-				E93F3E7423158FAC0098F16C /* Storyboards */,
+				E9BE1D702315A5B400F45FCD /* RoundedButton */,
+				E93F3EA52315A08F0098F16C /* Views */,
+				E93F3E9F23159D4D0098F16C /* Models */,
 				E93F3E6E23158EB10098F16C /* ViewControllers */,
 			);
 			path = SearchAndStoreAlbums;
@@ -389,6 +450,8 @@
 				E9C1E43C231583A9006A9F74 /* LaunchScreen.storyboard in Resources */,
 				E9C1E439231583A9006A9F74 /* Assets.xcassets in Resources */,
 				E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */,
+				E93F3EAA2315A1130098F16C /* HeaderView.xib in Resources */,
+				E9BE1D782315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +515,8 @@
 				E93F3E79231590C00098F16C /* UIWindow+Extensions.swift in Sources */,
 				E93F3EA223159D610098F16C /* Album.swift in Sources */,
 				E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
+				E93F3EA423159F9C0098F16C /* UICollectionViewCell+Extensions.swift in Sources */,
+				E9BE1D722315A5C700F45FCD /* RoundedButton.swift in Sources */,
 				E93F3E91231594800098F16C /* Coordinator.swift in Sources */,
 				E93F3E8D2315938E0098F16C /* IndividualizedInfoCoordinator.swift in Sources */,
 				E93F3E7D231591090098F16C /* UIView+Extensions.swift in Sources */,
@@ -460,12 +525,15 @@
 				E93F3E852315919F0098F16C /* ParserService.swift in Sources */,
 				E93F3E89231591FF0098F16C /* ApplicationCoordinator.swift in Sources */,
 				E93F3E9D2315990D0098F16C /* LocalAlbumsViewController.swift in Sources */,
+				E93F3EAC2315A1410098F16C /* HeaderView.swift in Sources */,
+				E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */,
 				E93F3E8B2315922D0098F16C /* AlbumSearchCoordinator.swift in Sources */,
 				E93F3E7F2315912D0098F16C /* OSLog+Extensions.swift in Sources */,
 				E93F3E82231591640098F16C /* NetworkingService.swift in Sources */,
 				E93F3E8F231594640098F16C /* Coordinating.swift in Sources */,
 				E93F3E97231595010098F16C /* CoreDataManager.swift in Sources */,
 				E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */,
+				E93F3EAE2315A2670098F16C /* HeaderViewDelegate.swift in Sources */,
 				E93F3E99231597340098F16C /* Persister.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

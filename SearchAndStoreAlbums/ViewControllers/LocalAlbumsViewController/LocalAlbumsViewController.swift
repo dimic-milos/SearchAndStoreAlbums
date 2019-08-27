@@ -6,25 +6,119 @@
 //  Copyright © 2019 Dimic Milos. All rights reserved.
 //
 
+import os
 import UIKit
 
 class LocalAlbumsViewController: UIViewController {
 
+    // MARK: - Outlets
+
+    @IBOutlet weak var viewContainer: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    // MARK: - Properties
+
+    private var albums: [Album] = []
+    private (set) var headerView: HeaderView!
+    
+    // MARK: - Init methods
+    
+    init() {
+        os_log(.info, log: .initialization, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        registerCells()
+        setupHeaderView()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
     }
-    */
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+    }
+    
+    // MARK: - Private methods
+    
+    private func registerCells() {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        collectionView.register(BasicAlbumInfoCollectionViewCell.nib, forCellWithReuseIdentifier: BasicAlbumInfoCollectionViewCell.reuseIdentifier())
+    }
+    
+    private func setupHeaderView() {
+        headerView = HeaderView.fromNib()
+        guard let headerView = headerView else {
+            os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return
+        }
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.delegate = self
+        
+        viewContainer.addSubview(headerView)
+        viewContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[headerView]-(0)-|", options: [], metrics: nil, views: ["headerView": headerView]))
+        viewContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[headerView]|", options: [], metrics: nil, views: ["headerView": headerView]))
+    }
 }
+
+extension LocalAlbumsViewController: UICollectionViewDataSource {
+    
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicAlbumInfoCollectionViewCell.reuseIdentifier(), for: indexPath) as! BasicAlbumInfoCollectionViewCell
+        cell.labelAlbumName.text = "A"
+        return cell
+    }
+}
+
+extension LocalAlbumsViewController: UICollectionViewDelegateFlowLayout {
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        return .init(width: 100, height: 50)
+    }
+}
+
+
+extension LocalAlbumsViewController: HeaderViewDelegate {
+    
+    // MARK: - HeaderViewDelegate
+    
+    func didTapButtonSearchForArtists(_ headerView: HeaderView) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+}
+
