@@ -68,7 +68,12 @@ extension AlbumSearchCoordinator: ArtistSearchViewControllerDelegate {
             switch response.success {
                 
             case true:
-//                self.parserService
+                guard let data = response.data else {
+                    os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                    return
+                }
+                let artists = self.parserService.parseArtists(fromData: data)
+                print(artists)
             case false:
                 os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                 return

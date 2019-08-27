@@ -18,12 +18,12 @@ class NetworkingService {
         let success:Bool
         let error:Error?
         let message:String?
-        let object:AnyObject?
-        init (success: Bool, error: Error? = nil, message: String? = nil, object: AnyObject? = nil) {
+        let data: Data?
+        init (success: Bool, error: Error? = nil, message: String? = nil, data: Data? = nil) {
             self.success = success
             self.error = error
             self.message = message
-            self.object = object
+            self.data = data
         }
     }
     
@@ -32,6 +32,7 @@ class NetworkingService {
         case serializationFailed
         case responseIsNotHTTPURL
         case statusCodeNotSuccessful(error: Error?)
+        case couldntCastAsData
         case dataIsNil
         case dataIsEmpty
         
@@ -87,16 +88,21 @@ class NetworkingService {
         
         guard let url = URL(string: endpoint) else {
             os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", APIRequestError.invalidEndpoint.description, #function, #line, #file)
-            apiResponse?(APIResponse(success: false, error: APIRequestError.invalidEndpoint, message: APIRequestError.invalidEndpoint.description, object: nil))
+            apiResponse?(APIResponse(success: false, error: APIRequestError.invalidEndpoint, message: APIRequestError.invalidEndpoint.description))
             return
         }
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
-            case .success(let data):
+            case .success(_):
                 if let statusCode = response.response?.statusCode, 200...300 ~= statusCode {
+                    guard let data = response.data else {
+                        let error = APIRequestError.couldntCastAsData
+                        os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
+                        return
+                    }
                     os_log(.info, log: .network, "success, statusCode: %i, function: %s, line: %i, \nfile: %s", statusCode, #function, #line, #file);
-                    apiResponse?(APIResponse(success: true, object: data as AnyObject))
+                    apiResponse?(APIResponse(success: true, data: data))
                 } else {
                     let error = APIRequestError.statusCodeNotSuccessful(error: nil)
                     os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
