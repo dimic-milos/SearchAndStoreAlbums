@@ -21,6 +21,8 @@ class LocalAlbumsViewController: UIViewController {
     private var albums: [Album] = []
     private (set) var headerView: HeaderView!
     
+    weak var delegate: LocalAlbumsViewControllerDelegate?
+    
     // MARK: - Init methods
     
     init() {
@@ -119,6 +121,7 @@ extension LocalAlbumsViewController: HeaderViewDelegate {
     func didTapButtonSearchForArtists(_ headerView: HeaderView) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
+        delegate?.didRequestToSearchForArtists(self)
     }
 }
 

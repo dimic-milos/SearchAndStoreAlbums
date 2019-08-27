@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ArtistSearchViewController" customModule="SearchAndStoreAlbums" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="mUt-59-T6V" id="Okg-iX-YTD"/>
+                <outlet property="tableView" destination="mUO-9t-rWm" id="E3e-2N-Lf4"/>
+                <outlet property="tableViewBottomConstraint" destination="BRU-j6-VX5" id="eif-Rb-aTT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mUt-59-T6V">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Nhv-2I-dKA"/>
+                    </constraints>
+                    <color key="tintColor" red="0.01081761438" green="0.67612677809999999" blue="0.91812640430000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6FR-hW-t6F"/>
+                    </connections>
+                </searchBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mUO-9t-rWm">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qop-BP-uNb"/>
+                        <outlet property="delegate" destination="-1" id="bru-C9-Obc"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mUt-59-T6V" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="441-AD-a9R"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mUO-9t-rWm" secondAttribute="trailing" id="70e-h9-MrR"/>
+                <constraint firstItem="mUt-59-T6V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8ZZ-Di-3u6"/>
+                <constraint firstItem="mUO-9t-rWm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9Ai-b2-vPK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mUO-9t-rWm" secondAttribute="bottom" id="BRU-j6-VX5"/>
+                <constraint firstItem="mUt-59-T6V" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="cGj-dN-g2b"/>
+                <constraint firstItem="mUO-9t-rWm" firstAttribute="top" secondItem="mUt-59-T6V" secondAttribute="bottom" id="wW8-XT-Zfp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+</document>

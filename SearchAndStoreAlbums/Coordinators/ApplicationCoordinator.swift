@@ -46,6 +46,42 @@ class ApplicationCoordinator: NavigationCoordinator {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         let localAlbumsViewController = LocalAlbumsViewController()
+        localAlbumsViewController.delegate = self
         rootOut(with:localAlbumsViewController)
     }
+    
+    private func startAlbumSearchFlow() {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let albumSearchCoordinator = AlbumSearchCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        albumSearchCoordinator.delegate = self
+        add(childCoordinator: albumSearchCoordinator)
+        albumSearchCoordinator.start()
+    }
+}
+
+extension ApplicationCoordinator: LocalAlbumsViewControllerDelegate {
+    
+    // MARK: - LocalAlbumsViewControllerDelegate
+    
+    func didRequestToSearchForArtists(_ in: LocalAlbumsViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        pop()
+        startAlbumSearchFlow()
+        
+    }
+}
+
+extension ApplicationCoordinator: AlbumSearchCoordinatorDelegate {
+    
+    // MARK: - AlbumSearchCoordinatorDelegate
+    
+    func didFinish(_ albumSearchCoordinator: AlbumSearchCoordinator) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        remove(childCoordinator: albumSearchCoordinator)
+    }
+    
+    
 }

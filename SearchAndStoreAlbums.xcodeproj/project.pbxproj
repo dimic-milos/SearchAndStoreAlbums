@@ -33,6 +33,13 @@
 		E9BE1D722315A5C700F45FCD /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D712315A5C700F45FCD /* RoundedButton.swift */; };
 		E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D752315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift */; };
 		E9BE1D782315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D762315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib */; };
+		E9BE1D7B2315B34600F45FCD /* ArtistSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D792315B34500F45FCD /* ArtistSearchViewController.xib */; };
+		E9BE1D7C2315B34600F45FCD /* ArtistSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D7A2315B34500F45FCD /* ArtistSearchViewController.swift */; };
+		E9BE1D7F2315B45500F45FCD /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D7E2315B45500F45FCD /* Artist.swift */; };
+		E9BE1D822315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D812315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift */; };
+		E9BE1D852315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D842315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift */; };
+		E9BE1D872315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D862315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift */; };
+		E9BE1D8A2315BB6800F45FCD /* AlbumSearchCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D892315BB6800F45FCD /* AlbumSearchCoordinatorDelegate.swift */; };
 		E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E42E231583A8006A9F74 /* AppDelegate.swift */; };
 		E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E432231583A8006A9F74 /* Main.storyboard */; };
 		E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */; };
@@ -80,6 +87,13 @@
 		E9BE1D712315A5C700F45FCD /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		E9BE1D752315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAlbumInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9BE1D762315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BasicAlbumInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		E9BE1D792315B34500F45FCD /* ArtistSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistSearchViewController.xib; sourceTree = "<group>"; };
+		E9BE1D7A2315B34500F45FCD /* ArtistSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewController.swift; sourceTree = "<group>"; };
+		E9BE1D7E2315B45500F45FCD /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		E9BE1D812315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E9BE1D842315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightToConstraintLenghtAdjuster.swift; sourceTree = "<group>"; };
+		E9BE1D862315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAlbumsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E9BE1D892315BB6800F45FCD /* AlbumSearchCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		E9C1E42B231583A8006A9F74 /* SearchAndStoreAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAndStoreAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C1E42E231583A8006A9F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C1E433231583A8006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +165,8 @@
 		E93F3E7023158EE60098F16C /* ArtistSearchViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E9BE1D7A2315B34500F45FCD /* ArtistSearchViewController.swift */,
+				E9BE1D792315B34500F45FCD /* ArtistSearchViewController.xib */,
 			);
 			path = ArtistSearchViewController;
 			sourceTree = "<group>";
@@ -199,6 +215,8 @@
 		E93F3E76231590910098F16C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				E9BE1D882315BB5000F45FCD /* Coordinators */,
+				E9BE1D802315B58500F45FCD /* ViewControllers */,
 				E93F3E98231597340098F16C /* Persister.swift */,
 				E93F3EAD2315A2670098F16C /* HeaderViewDelegate.swift */,
 			);
@@ -258,6 +276,7 @@
 		E93F3E9F23159D4D0098F16C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9BE1D7D2315B44500F45FCD /* Artist */,
 				E93F3EA023159D530098F16C /* Album */,
 			);
 			path = Models;
@@ -313,6 +332,39 @@
 			path = BasicAlbumInfoCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		E9BE1D7D2315B44500F45FCD /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D7E2315B45500F45FCD /* Artist.swift */,
+			);
+			path = Artist;
+			sourceTree = "<group>";
+		};
+		E9BE1D802315B58500F45FCD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D812315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift */,
+				E9BE1D862315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E9BE1D832315B65C00F45FCD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D842315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E9BE1D882315BB5000F45FCD /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D892315BB6800F45FCD /* AlbumSearchCoordinatorDelegate.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		E9C1E422231583A8006A9F74 = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +389,8 @@
 		E9C1E42D231583A8006A9F74 /* SearchAndStoreAlbums */ = {
 			isa = PBXGroup;
 			children = (
+				E93F3E76231590910098F16C /* Protocols */,
+				E9BE1D832315B65C00F45FCD /* Utilities */,
 				E9BE1D732315A85400F45FCD /* CollectionViewCells */,
 				E93F3E7423158FAC0098F16C /* Storyboards */,
 				E93F3E7323158F7B0098F16C /* Application */,
@@ -345,7 +399,6 @@
 				E93F3E832315918E0098F16C /* ParserService */,
 				E93F3E802315915A0098F16C /* NetworkingService */,
 				E93F3E772315909E0098F16C /* Extensions */,
-				E93F3E76231590910098F16C /* Protocols */,
 				E9BE1D702315A5B400F45FCD /* RoundedButton */,
 				E93F3EA52315A08F0098F16C /* Views */,
 				E93F3E9F23159D4D0098F16C /* Models */,
@@ -448,6 +501,7 @@
 			files = (
 				E93F3E9E2315990D0098F16C /* LocalAlbumsViewController.xib in Resources */,
 				E9C1E43C231583A9006A9F74 /* LaunchScreen.storyboard in Resources */,
+				E9BE1D7B2315B34600F45FCD /* ArtistSearchViewController.xib in Resources */,
 				E9C1E439231583A9006A9F74 /* Assets.xcassets in Resources */,
 				E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */,
 				E93F3EAA2315A1130098F16C /* HeaderView.xib in Resources */,
@@ -513,6 +567,7 @@
 			files = (
 				E93F3E95231594B10098F16C /* MainNavigationController.swift in Sources */,
 				E93F3E79231590C00098F16C /* UIWindow+Extensions.swift in Sources */,
+				E9BE1D7C2315B34600F45FCD /* ArtistSearchViewController.swift in Sources */,
 				E93F3EA223159D610098F16C /* Album.swift in Sources */,
 				E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
 				E93F3EA423159F9C0098F16C /* UICollectionViewCell+Extensions.swift in Sources */,
@@ -523,15 +578,20 @@
 				E93F3E7B231590E70098F16C /* UITableViewCell+Extensions.swift in Sources */,
 				E93F3E93231594960098F16C /* NavigationCoordinator.swift in Sources */,
 				E93F3E852315919F0098F16C /* ParserService.swift in Sources */,
+				E9BE1D8A2315BB6800F45FCD /* AlbumSearchCoordinatorDelegate.swift in Sources */,
 				E93F3E89231591FF0098F16C /* ApplicationCoordinator.swift in Sources */,
 				E93F3E9D2315990D0098F16C /* LocalAlbumsViewController.swift in Sources */,
+				E9BE1D852315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift in Sources */,
 				E93F3EAC2315A1410098F16C /* HeaderView.swift in Sources */,
 				E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */,
 				E93F3E8B2315922D0098F16C /* AlbumSearchCoordinator.swift in Sources */,
+				E9BE1D872315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift in Sources */,
 				E93F3E7F2315912D0098F16C /* OSLog+Extensions.swift in Sources */,
 				E93F3E82231591640098F16C /* NetworkingService.swift in Sources */,
 				E93F3E8F231594640098F16C /* Coordinating.swift in Sources */,
 				E93F3E97231595010098F16C /* CoreDataManager.swift in Sources */,
+				E9BE1D7F2315B45500F45FCD /* Artist.swift in Sources */,
+				E9BE1D822315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift in Sources */,
 				E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */,
 				E93F3EAE2315A2670098F16C /* HeaderViewDelegate.swift in Sources */,
 				E93F3E99231597340098F16C /* Persister.swift in Sources */,
