@@ -142,7 +142,7 @@ extension ArtistSearchViewController: UISearchBarDelegate {
     // MARK: - UISearchBarDelegate
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         if searchText == "" {
             tempArtists = []
