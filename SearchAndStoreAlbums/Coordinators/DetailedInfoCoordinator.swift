@@ -49,9 +49,12 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     
     // MARK: - Private methods
     
-    private func showAlbumDetailViewController() {
+    private func showAlbumDetailViewController(withAlbum album: Album) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
+        let albumDetailViewController = AlbumDetailViewController(album: album)
+        albumDetailViewController.delegate = self
+        show(albumDetailViewController)
     }
     
 
@@ -96,10 +99,10 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         }
     }
     
-    private func getTracks(forAlbum albumName: String, artist artistName: String) {
+    private func getTracks(forAlbum album: Album, artist artistName: String) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        networkingService.getTracks(forAlbum: albumName, artistName: artistName) { [weak self] (response) in
+        networkingService.getTracks(forAlbum: album.name, artistName: artistName) { [weak self] (response) in
             guard let self = self else {
                 os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                 return
@@ -117,7 +120,9 @@ class DetailedInfoCoordinator: NavigationCoordinator {
                 switch parseResult {
                     
                 case .success(let tracks):
-                    print(tracks)
+                    var selectedAlbum = album
+                    selectedAlbum.tracks = tracks
+                    self.showAlbumDetailViewController(withAlbum: selectedAlbum)
                 case .failure(_):
                     break
                 }
@@ -138,17 +143,8 @@ extension DetailedInfoCoordinator: AlbumsListViewControllerDelegate {
     func showInDetail(album: Album, artistName: String, albumsListViewController: AlbumsListViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        getTracks(forAlbum: album.name, artist: artistName)
-    }
-    
-    func store(album: Album, albumsListViewController: AlbumsListViewController) {
-        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
-    }
-    
-    func delete(album: Album, albumsListViewController: AlbumsListViewController) {
-        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
+        pop()
+        getTracks(forAlbum: album, artist: artistName)
     }
 
     func didTapBack(_ albumsListViewController: AlbumsListViewController) {
@@ -164,5 +160,33 @@ extension DetailedInfoCoordinator: AlbumsListViewControllerDelegate {
         pop()
         delegate?.shoudContinue(toArtistSearch: true, detailedInfoCoordinator: self)
     }
+}
+
+extension DetailedInfoCoordinator: AlbumDetailViewControllerDelegate {
     
+    // MARK: - AlbumDetailViewControllerDelegate
+    
+    func store(album: Album, albumDetailViewController: AlbumDetailViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+    
+    func delete(album: Album, albumDetailViewController: AlbumDetailViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+    
+    func didTapBack(_ albumDetailViewController: AlbumDetailViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        pop()
+        delegate?.didFinish(self)
+    }
+    
+    func didTapSearchForArtists(_ albumDetailViewController: AlbumDetailViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        pop()
+        delegate?.shoudContinue(toArtistSearch: true, detailedInfoCoordinator: self)
+    }
 }

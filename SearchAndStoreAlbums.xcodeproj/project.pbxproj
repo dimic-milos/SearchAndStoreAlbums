@@ -48,6 +48,11 @@
 		E9BE1D972316010B00F45FCD /* DetailAlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */; };
 		E9BE1D9A2316142500F45FCD /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D992316142500F45FCD /* Track.swift */; };
 		E9BE1D9D2316150900F45FCD /* AlbumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D9C2316150900F45FCD /* AlbumImage.swift */; };
+		E9BE1DA02316236300F45FCD /* AlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D9E2316236300F45FCD /* AlbumDetailViewController.swift */; };
+		E9BE1DA12316236300F45FCD /* AlbumDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D9F2316236300F45FCD /* AlbumDetailViewController.xib */; };
+		E9BE1DA32316244000F45FCD /* AlbumDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1DA22316244000F45FCD /* AlbumDetailViewControllerDelegate.swift */; };
+		E9BE1DA82316269F00F45FCD /* TrackDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1DA62316269F00F45FCD /* TrackDetailTableViewCell.swift */; };
+		E9BE1DA92316269F00F45FCD /* TrackDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1DA72316269F00F45FCD /* TrackDetailTableViewCell.xib */; };
 		E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E42E231583A8006A9F74 /* AppDelegate.swift */; };
 		E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E432231583A8006A9F74 /* Main.storyboard */; };
 		E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */; };
@@ -110,6 +115,11 @@
 		E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAlbumTableViewCell.xib; sourceTree = "<group>"; };
 		E9BE1D992316142500F45FCD /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		E9BE1D9C2316150900F45FCD /* AlbumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImage.swift; sourceTree = "<group>"; };
+		E9BE1D9E2316236300F45FCD /* AlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewController.swift; sourceTree = "<group>"; };
+		E9BE1D9F2316236300F45FCD /* AlbumDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumDetailViewController.xib; sourceTree = "<group>"; };
+		E9BE1DA22316244000F45FCD /* AlbumDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E9BE1DA62316269F00F45FCD /* TrackDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E9BE1DA72316269F00F45FCD /* TrackDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailTableViewCell.xib; sourceTree = "<group>"; };
 		E9C1E42B231583A8006A9F74 /* SearchAndStoreAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAndStoreAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C1E42E231583A8006A9F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C1E433231583A8006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -199,6 +209,8 @@
 		E93F3E7223158F170098F16C /* AlbumDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E9BE1D9E2316236300F45FCD /* AlbumDetailViewController.swift */,
+				E9BE1D9F2316236300F45FCD /* AlbumDetailViewController.xib */,
 			);
 			path = AlbumDetailViewController;
 			sourceTree = "<group>";
@@ -366,6 +378,7 @@
 				E9BE1D812315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift */,
 				E9BE1D862315B70900F45FCD /* LocalAlbumsViewControllerDelegate.swift */,
 				E9BE1D912315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift */,
+				E9BE1DA22316244000F45FCD /* AlbumDetailViewControllerDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -390,8 +403,8 @@
 		E9BE1D932315FF3B00F45FCD /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				E9BE1D942316010B00F45FCD /* DetailAlbumTableViewCell.swift */,
-				E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */,
+				E9BE1DA52316267600F45FCD /* TrackDetailTableViewCell */,
+				E9BE1DA42316266B00F45FCD /* DetailAlbumTableViewCell */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -410,6 +423,24 @@
 				E9BE1D9C2316150900F45FCD /* AlbumImage.swift */,
 			);
 			path = AlbumImage;
+			sourceTree = "<group>";
+		};
+		E9BE1DA42316266B00F45FCD /* DetailAlbumTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D942316010B00F45FCD /* DetailAlbumTableViewCell.swift */,
+				E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */,
+			);
+			path = DetailAlbumTableViewCell;
+			sourceTree = "<group>";
+		};
+		E9BE1DA52316267600F45FCD /* TrackDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1DA62316269F00F45FCD /* TrackDetailTableViewCell.swift */,
+				E9BE1DA72316269F00F45FCD /* TrackDetailTableViewCell.xib */,
+			);
+			path = TrackDetailTableViewCell;
 			sourceTree = "<group>";
 		};
 		E9C1E422231583A8006A9F74 = {
@@ -550,9 +581,11 @@
 				E93F3E9E2315990D0098F16C /* LocalAlbumsViewController.xib in Resources */,
 				E9C1E43C231583A9006A9F74 /* LaunchScreen.storyboard in Resources */,
 				E9BE1D7B2315B34600F45FCD /* ArtistSearchViewController.xib in Resources */,
+				E9BE1DA12316236300F45FCD /* AlbumDetailViewController.xib in Resources */,
 				E9BE1D972316010B00F45FCD /* DetailAlbumTableViewCell.xib in Resources */,
 				E9C1E439231583A9006A9F74 /* Assets.xcassets in Resources */,
 				E9BE1D902315EF1400F45FCD /* AlbumsListViewController.xib in Resources */,
+				E9BE1DA92316269F00F45FCD /* TrackDetailTableViewCell.xib in Resources */,
 				E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */,
 				E93F3EAA2315A1130098F16C /* HeaderView.xib in Resources */,
 				E9BE1D782315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.xib in Resources */,
@@ -617,6 +650,7 @@
 			files = (
 				E93F3E95231594B10098F16C /* MainNavigationController.swift in Sources */,
 				E93F3E79231590C00098F16C /* UIWindow+Extensions.swift in Sources */,
+				E9BE1DA32316244000F45FCD /* AlbumDetailViewControllerDelegate.swift in Sources */,
 				E9BE1D7C2315B34600F45FCD /* ArtistSearchViewController.swift in Sources */,
 				E93F3EA223159D610098F16C /* Album.swift in Sources */,
 				E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
@@ -636,6 +670,7 @@
 				E9BE1D852315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift in Sources */,
 				E9BE1D9D2316150900F45FCD /* AlbumImage.swift in Sources */,
 				E93F3EAC2315A1410098F16C /* HeaderView.swift in Sources */,
+				E9BE1DA82316269F00F45FCD /* TrackDetailTableViewCell.swift in Sources */,
 				E9BE1D8C2315EB1500F45FCD /* DetailedInfoCoordinatorDelegate.swift in Sources */,
 				E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */,
 				E93F3E8B2315922D0098F16C /* AlbumSearchCoordinator.swift in Sources */,
@@ -646,6 +681,7 @@
 				E93F3E8F231594640098F16C /* Coordinating.swift in Sources */,
 				E93F3E97231595010098F16C /* CoreDataManager.swift in Sources */,
 				E9BE1D7F2315B45500F45FCD /* Artist.swift in Sources */,
+				E9BE1DA02316236300F45FCD /* AlbumDetailViewController.swift in Sources */,
 				E9BE1D822315B59A00F45FCD /* ArtistSearchViewControllerDelegate.swift in Sources */,
 				E9BE1D962316010B00F45FCD /* DetailAlbumTableViewCell.swift in Sources */,
 				E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */,

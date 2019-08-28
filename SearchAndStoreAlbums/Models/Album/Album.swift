@@ -19,7 +19,7 @@ struct Album: Decodable {
     let name: String
     let artist: Artist
     let image: [AlbumImage]
-    var tracks: [Track]?
+    var tracks: [Track] = []
     
     init(from decoder: Decoder) throws {
         os_log(.info, log: .codable, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
@@ -28,7 +28,6 @@ struct Album: Decodable {
         name = try container.decode(String.self, forKey: .name)
         artist = try container.decode(Artist.self, forKey: .artist)
         image = try container.decode([AlbumImage].self, forKey: .image)
-        tracks = try container.decodeIfPresent([Track].self, forKey: .tracks)
     }
 }
 

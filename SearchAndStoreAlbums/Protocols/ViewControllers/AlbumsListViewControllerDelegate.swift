@@ -8,8 +8,6 @@
 
 protocol AlbumsListViewControllerDelegate: class {
     func showInDetail(album: Album, artistName: String, albumsListViewController: AlbumsListViewController)
-    func store(album: Album, albumsListViewController: AlbumsListViewController)
-    func delete(album: Album, albumsListViewController: AlbumsListViewController)
     func didTapBack(_ albumsListViewController: AlbumsListViewController)
     func didTapSearchForArtists(_ albumsListViewController: AlbumsListViewController)
 }

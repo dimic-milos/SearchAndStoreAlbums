@@ -36,7 +36,7 @@ class ParserService {
         }
     }
     
-    func parseTracks(fromData data: Data) -> (Result<[Track]?, Error>) {
+    func parseTracks(fromData data: Data) -> (Result<[Track], Error>) {
         os_log(.info, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         do {
@@ -86,6 +86,6 @@ extension ParserService {
     }
     
     private struct Tracks: Decodable {
-        let track: [Track]?
+        let track: [Track]
     }
 }
