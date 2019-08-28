@@ -136,14 +136,23 @@ extension AlbumsListViewController: UITableViewDelegate {
         os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard let artistName = albums.first?.artist.name else {
+            os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return
+        }
+        delegate?.showInDetail(album: albums[indexPath.row], artistName: artistName, albumsListViewController: self)
     }
 }
 
 extension AlbumsListViewController: HeaderViewDelegate {
     
+    // MARK: - HeaderViewDelegate
+    
     func didTapButtonSearchForArtists(_ headerView: HeaderView) {
         os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
+        delegate?.didTapSearchForArtists(self)
     }
     
     func didTapButtonBack(_ headerView: HeaderView) {

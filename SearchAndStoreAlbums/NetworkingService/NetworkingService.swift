@@ -65,12 +65,14 @@ class NetworkingService {
         static let Method           = "method="
         static let ApiKey           = "&api_key="
         static let FormatJSON       = "&format=json"
-        
+        static let Artist           = "&artist="
+        static let Album            = "&album="
     }
     
     private struct Method {
         static let ArtistSearch     = "artist.search&artist="
         static let TopAlbums        = "artist.gettopalbums&artist="
+        static let AlbumTracks      = "album.getinfo"
     }
     
     // MARK: - Properties
@@ -92,8 +94,8 @@ class NetworkingService {
             apiResponse?(APIResponse(success: false, error: error, message: error.description))
             return
         }
-        
         let endpoint = baseURL + Prefix.Method + Method.ArtistSearch + artistNamePercentEncoded + Prefix.ApiKey + Authorisation.apiKey + Prefix.FormatJSON
+        
         get(endpoint: endpoint) { (response) in
             apiResponse?(response)
         }
@@ -108,8 +110,31 @@ class NetworkingService {
             apiResponse?(APIResponse(success: false, error: error, message: error.description))
             return
         }
-        
         let endpoint = baseURL + Prefix.Method + Method.TopAlbums + artistNamePercentEncoded + Prefix.ApiKey + Authorisation.apiKey + Prefix.FormatJSON
+
+        get(endpoint: endpoint) { (response) in
+            apiResponse?(response)
+        }
+    }
+    
+    func getTracks(forAlbum albumName: String, artistName: String, apiResponse: APIResponseCallback?) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        guard let artistNamePercentEncoded = artistName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            let error = APIRequestError.percentEncodingFailed
+            os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
+            apiResponse?(APIResponse(success: false, error: error, message: error.description))
+            return
+        }
+        
+        guard let albumNamePercentEncoded = albumName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            let error = APIRequestError.percentEncodingFailed
+            os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
+            apiResponse?(APIResponse(success: false, error: error, message: error.description))
+            return
+        }
+        let endpoint = baseURL + Prefix.Method + Method.AlbumTracks + Prefix.ApiKey + Authorisation.apiKey + Prefix.Artist + artistNamePercentEncoded + Prefix.Album + albumNamePercentEncoded + Prefix.FormatJSON
+        
         get(endpoint: endpoint) { (response) in
             apiResponse?(response)
         }

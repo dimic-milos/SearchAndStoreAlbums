@@ -35,8 +35,20 @@ class ParserService {
             return .failure(error)
         }
     }
+    
+    func parseTracks(fromData data: Data) -> (Result<[Track]?, Error>) {
+        os_log(.info, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        do {
+            let response = try JSONDecoder.init().decode(TracksSearch.self, from: data)
+            return .success(response.album.tracks.track)
+        } catch {
+            os_log(.error, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return .failure(error)
+        }
+    }
 }
-
+ 
 extension ParserService {
     
     private struct ArtistSearch: Decodable {
@@ -61,5 +73,19 @@ extension ParserService {
     private struct AlbumSearch: Decodable {
         let album: [Album]
     }
+}
+
+extension ParserService {
     
+    private struct TracksSearch: Decodable {
+        let album: AlbumTrackSearch
+    }
+    
+    private struct AlbumTrackSearch: Decodable {
+        let tracks: Tracks
+    }
+    
+    private struct Tracks: Decodable {
+        let track: [Track]?
+    }
 }

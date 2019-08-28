@@ -8,4 +8,5 @@
 
 protocol DetailedInfoCoordinatorDelegate: class {
     func didFinish(_ detailedInfoCoordinator: DetailedInfoCoordinator)
+    func shoudContinue(toArtistSearch: Bool, detailedInfoCoordinator: DetailedInfoCoordinator)
 }

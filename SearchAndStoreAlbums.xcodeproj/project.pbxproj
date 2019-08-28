@@ -46,6 +46,8 @@
 		E9BE1D922315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D912315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift */; };
 		E9BE1D962316010B00F45FCD /* DetailAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D942316010B00F45FCD /* DetailAlbumTableViewCell.swift */; };
 		E9BE1D972316010B00F45FCD /* DetailAlbumTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */; };
+		E9BE1D9A2316142500F45FCD /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D992316142500F45FCD /* Track.swift */; };
+		E9BE1D9D2316150900F45FCD /* AlbumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE1D9C2316150900F45FCD /* AlbumImage.swift */; };
 		E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E42E231583A8006A9F74 /* AppDelegate.swift */; };
 		E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E432231583A8006A9F74 /* Main.storyboard */; };
 		E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */; };
@@ -106,6 +108,8 @@
 		E9BE1D912315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsListViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E9BE1D942316010B00F45FCD /* DetailAlbumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAlbumTableViewCell.swift; sourceTree = "<group>"; };
 		E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailAlbumTableViewCell.xib; sourceTree = "<group>"; };
+		E9BE1D992316142500F45FCD /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		E9BE1D9C2316150900F45FCD /* AlbumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImage.swift; sourceTree = "<group>"; };
 		E9C1E42B231583A8006A9F74 /* SearchAndStoreAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAndStoreAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C1E42E231583A8006A9F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C1E433231583A8006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 		E93F3E9F23159D4D0098F16C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E9BE1D9B231614F600F45FCD /* AlbumImage */,
+				E9BE1D982316141100F45FCD /* Track */,
 				E9BE1D7D2315B44500F45FCD /* Artist */,
 				E93F3EA023159D530098F16C /* Album */,
 			);
@@ -388,6 +394,22 @@
 				E9BE1D952316010B00F45FCD /* DetailAlbumTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		E9BE1D982316141100F45FCD /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D992316142500F45FCD /* Track.swift */,
+			);
+			path = Track;
+			sourceTree = "<group>";
+		};
+		E9BE1D9B231614F600F45FCD /* AlbumImage */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE1D9C2316150900F45FCD /* AlbumImage.swift */,
+			);
+			path = AlbumImage;
 			sourceTree = "<group>";
 		};
 		E9C1E422231583A8006A9F74 = {
@@ -599,6 +621,7 @@
 				E93F3EA223159D610098F16C /* Album.swift in Sources */,
 				E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
 				E93F3EA423159F9C0098F16C /* UICollectionViewCell+Extensions.swift in Sources */,
+				E9BE1D9A2316142500F45FCD /* Track.swift in Sources */,
 				E9BE1D722315A5C700F45FCD /* RoundedButton.swift in Sources */,
 				E9BE1D922315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift in Sources */,
 				E93F3E91231594800098F16C /* Coordinator.swift in Sources */,
@@ -611,6 +634,7 @@
 				E93F3E89231591FF0098F16C /* ApplicationCoordinator.swift in Sources */,
 				E93F3E9D2315990D0098F16C /* LocalAlbumsViewController.swift in Sources */,
 				E9BE1D852315B66F00F45FCD /* KeyboardHeightToConstraintLenghtAdjuster.swift in Sources */,
+				E9BE1D9D2316150900F45FCD /* AlbumImage.swift in Sources */,
 				E93F3EAC2315A1410098F16C /* HeaderView.swift in Sources */,
 				E9BE1D8C2315EB1500F45FCD /* DetailedInfoCoordinatorDelegate.swift in Sources */,
 				E9BE1D772315A8B000F45FCD /* BasicAlbumInfoCollectionViewCell.swift in Sources */,

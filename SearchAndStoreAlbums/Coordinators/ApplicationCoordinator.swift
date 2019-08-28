@@ -120,6 +120,12 @@ extension ApplicationCoordinator: DetailedInfoCoordinatorDelegate {
         remove(childCoordinator: detailedInfoCoordinator)
     }
     
+    func shoudContinue(toArtistSearch: Bool, detailedInfoCoordinator: DetailedInfoCoordinator) {
+        
+        remove(childCoordinator: detailedInfoCoordinator)
+        startAlbumSearchFlow()
+    }
+    
     
     
 }
