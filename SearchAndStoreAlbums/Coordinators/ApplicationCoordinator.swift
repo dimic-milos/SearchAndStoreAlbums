@@ -37,7 +37,10 @@ class ApplicationCoordinator: NavigationCoordinator {
         
         window.set(rootViewController: rootViewController)
         rootViewController.setNavigationBarHidden(true, animated: false)
+        
+        insertAlbum(withName: "nugat", artistName: "michael jackson", tracks: ["prva", "druga",  "treca"])
         showOfflineAlbums()
+
     }
     
     // MARK: - Private methods
@@ -45,7 +48,11 @@ class ApplicationCoordinator: NavigationCoordinator {
     private func showOfflineAlbums() {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        let localAlbumsViewController = LocalAlbumsViewController()
+        var albums: [Album] = []
+        if let cdAlbums = persister.fetchAllAlbums() {
+            albums = map(cdAlbums: cdAlbums)
+        }
+        let localAlbumsViewController = LocalAlbumsViewController(albums: albums)
         localAlbumsViewController.delegate = self
         rootOut(with:localAlbumsViewController)
     }
@@ -75,6 +82,32 @@ class ApplicationCoordinator: NavigationCoordinator {
         detailedInfoCoordinator.delegate = self
         add(childCoordinator: detailedInfoCoordinator)
         detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))
+    }
+    
+    private func insertAlbum(withName albumName: String, artistName: String, tracks: [String]) {
+        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks)
+    }
+
+    private func map(cdAlbums: [CDAlbum]) -> [Album] {
+        var albums: [Album] = []
+        cdAlbums.forEach {
+            guard let albumName = $0.name else {
+                os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            guard let artistName = $0.artist else {
+                os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            guard let tracks = $0.tracks as? [String] else {
+                os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+                        
+            let album = Album(name: albumName, artistName: artistName, tracks: tracks.map { Track(name: $0) }, isPersisted: true)
+            albums.append(album)
+        }
+        return albums
     }
 }
 

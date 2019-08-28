@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         applicationCoordinator = ApplicationCoordinator(window: window!, networkingService: networkService, parserService: parserService, persister: coreDataManager, rootViewController: mainNavigationController)
         applicationCoordinator.start()
+        
         return true
     }
     

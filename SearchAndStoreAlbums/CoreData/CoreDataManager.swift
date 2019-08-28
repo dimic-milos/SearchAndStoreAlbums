@@ -42,6 +42,42 @@ class CoreDataManager: Persister {
             }
         }
     }
+    
+    func fetchAllAlbums() -> [CDAlbum]? {
+        os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let managedContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDAlbum")
+
+        do {
+            let albums = try managedContext.fetch(fetchRequest)
+            return albums as? [CDAlbum]
+        } catch {
+            os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return nil
+        }
+    }
+
+    func insertAlbum(withName name: String, artistName: String, tracks: [String]) -> CDAlbum? {
+        os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let managedContext = persistentContainer.viewContext
+
+        let entity = NSEntityDescription.entity(forEntityName: "CDAlbum", in: managedContext)!
+        let persistedAlbum = NSManagedObject(entity: entity, insertInto: managedContext)
+
+        persistedAlbum.setValue(name, forKeyPath: "name")
+        persistedAlbum.setValue(artistName, forKeyPath: "artist")
+        persistedAlbum.setValue(tracks, forKeyPath: "tracks")
+
+        do {
+            try managedContext.save()
+            return persistedAlbum as? CDAlbum
+        } catch {
+            os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            fatalError()
+        }
+    }
 
     // MARK: - Private methods
     

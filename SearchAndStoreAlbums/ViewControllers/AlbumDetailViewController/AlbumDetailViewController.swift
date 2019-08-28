@@ -143,7 +143,6 @@ extension AlbumDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrackDetailTableViewCell.reuseIdentifier()) as! TrackDetailTableViewCell
         let tracks = album.tracks[indexPath.row]
         cell.labelTrackName.text = tracks.name
-        cell.labelTrackDuration.text = tracks.duration + " sec"
         
         return cell
     }

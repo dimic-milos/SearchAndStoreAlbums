@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9B9B6BC6ED32737C72194F2 /* Pods_SearchAndStoreAlbums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB25E627BAC861E84668A2F /* Pods_SearchAndStoreAlbums.framework */; };
+		E93976A02316475E0068CA8B /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E939769C231647080068CA8B /* SearchAndStoreAlbums.xcdatamodeld */; };
 		E93F3E79231590C00098F16C /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */; };
 		E93F3E7B231590E70098F16C /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */; };
 		E93F3E7D231591090098F16C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E7C231591090098F16C /* UIView+Extensions.swift */; };
@@ -55,7 +56,6 @@
 		E9BE1DA92316269F00F45FCD /* TrackDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9BE1DA72316269F00F45FCD /* TrackDetailTableViewCell.xib */; };
 		E9C1E42F231583A8006A9F74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E42E231583A8006A9F74 /* AppDelegate.swift */; };
 		E9C1E434231583A8006A9F74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E432231583A8006A9F74 /* Main.storyboard */; };
-		E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */; };
 		E9C1E439231583A9006A9F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E438231583A9006A9F74 /* Assets.xcassets */; };
 		E9C1E43C231583A9006A9F74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9C1E43A231583A9006A9F74 /* LaunchScreen.storyboard */; };
 		E9C1E447231583A9006A9F74 /* SearchAndStoreAlbumsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1E446231583A9006A9F74 /* SearchAndStoreAlbumsTests.swift */; };
@@ -75,6 +75,7 @@
 		1AB25E627BAC861E84668A2F /* Pods_SearchAndStoreAlbums.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchAndStoreAlbums.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5176C1A02D79962FF66E5012 /* Pods-SearchAndStoreAlbums.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAndStoreAlbums.release.xcconfig"; path = "Target Support Files/Pods-SearchAndStoreAlbums/Pods-SearchAndStoreAlbums.release.xcconfig"; sourceTree = "<group>"; };
 		964FB5F2AE51577E1C548EB0 /* Pods-SearchAndStoreAlbums.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAndStoreAlbums.debug.xcconfig"; path = "Target Support Files/Pods-SearchAndStoreAlbums/Pods-SearchAndStoreAlbums.debug.xcconfig"; sourceTree = "<group>"; };
+		E939769D231647080068CA8B /* SearchAndStoreAlbums.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchAndStoreAlbums.xcdatamodel; sourceTree = "<group>"; };
 		E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		E93F3E7C231591090098F16C /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -123,7 +124,6 @@
 		E9C1E42B231583A8006A9F74 /* SearchAndStoreAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAndStoreAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C1E42E231583A8006A9F74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9C1E433231583A8006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E9C1E436231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchAndStoreAlbums.xcdatamodel; sourceTree = "<group>"; };
 		E9C1E438231583A9006A9F74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9C1E43B231583A9006A9F74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9C1E43D231583A9006A9F74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				E9C1E42E231583A8006A9F74 /* AppDelegate.swift */,
+				E939769C231647080068CA8B /* SearchAndStoreAlbums.xcdatamodeld */,
 				E9C1E43D231583A9006A9F74 /* Info.plist */,
 			);
 			path = Application;
@@ -237,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				E93F3E96231595010098F16C /* CoreDataManager.swift */,
-				E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -653,11 +653,11 @@
 				E9BE1DA32316244000F45FCD /* AlbumDetailViewControllerDelegate.swift in Sources */,
 				E9BE1D7C2315B34600F45FCD /* ArtistSearchViewController.swift in Sources */,
 				E93F3EA223159D610098F16C /* Album.swift in Sources */,
-				E9C1E437231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
 				E93F3EA423159F9C0098F16C /* UICollectionViewCell+Extensions.swift in Sources */,
 				E9BE1D9A2316142500F45FCD /* Track.swift in Sources */,
 				E9BE1D722315A5C700F45FCD /* RoundedButton.swift in Sources */,
 				E9BE1D922315EFF900F45FCD /* AlbumsListViewControllerDelegate.swift in Sources */,
+				E93976A02316475E0068CA8B /* SearchAndStoreAlbums.xcdatamodeld in Sources */,
 				E93F3E91231594800098F16C /* Coordinator.swift in Sources */,
 				E93F3E8D2315938E0098F16C /* DetailedInfoCoordinator.swift in Sources */,
 				E93F3E7D231591090098F16C /* UIView+Extensions.swift in Sources */,
@@ -959,12 +959,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E9C1E435231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodeld */ = {
+		E939769C231647080068CA8B /* SearchAndStoreAlbums.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E9C1E436231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodel */,
+				E939769D231647080068CA8B /* SearchAndStoreAlbums.xcdatamodel */,
 			);
-			currentVersion = E9C1E436231583A8006A9F74 /* SearchAndStoreAlbums.xcdatamodel */;
+			currentVersion = E939769D231647080068CA8B /* SearchAndStoreAlbums.xcdatamodel */;
 			path = SearchAndStoreAlbums.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

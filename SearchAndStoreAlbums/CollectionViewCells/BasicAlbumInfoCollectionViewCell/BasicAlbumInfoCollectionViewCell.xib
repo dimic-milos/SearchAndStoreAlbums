@@ -18,25 +18,45 @@
                 <rect key="frame" x="0.0" y="0.0" width="196" height="172"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-6v-WLL">
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-jf-rkR">
                         <rect key="frame" x="0.0" y="0.0" width="196" height="172"/>
-                        <color key="backgroundColor" red="0.34666699169999998" green="0.63203471899999997" blue="0.83116215469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hRN-6v-WLL">
+                                <rect key="frame" x="0.0" y="0.0" width="196" height="57.5"/>
+                                <color key="backgroundColor" red="0.34666699169999998" green="0.63203471899999997" blue="0.83116215469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6xi-91-MtW">
+                                <rect key="frame" x="0.0" y="57.5" width="196" height="57"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="pnj-mC-Jst">
+                                <rect key="frame" x="0.0" y="114.5" width="196" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="hRN-6v-WLL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7EA-nI-0hw"/>
-                <constraint firstAttribute="bottom" secondItem="hRN-6v-WLL" secondAttribute="bottom" id="g8W-UD-KiN"/>
-                <constraint firstItem="hRN-6v-WLL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kRZ-ZH-fGl"/>
-                <constraint firstAttribute="trailing" secondItem="hRN-6v-WLL" secondAttribute="trailing" id="sbp-I3-uKJ"/>
+                <constraint firstAttribute="trailing" secondItem="g9v-jf-rkR" secondAttribute="trailing" id="BD6-cR-LSr"/>
+                <constraint firstAttribute="bottom" secondItem="g9v-jf-rkR" secondAttribute="bottom" id="FJK-Z7-nLN"/>
+                <constraint firstItem="g9v-jf-rkR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RUQ-Ms-Mzn"/>
+                <constraint firstItem="g9v-jf-rkR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="vW4-Gn-pzU"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="196" height="172"/>
             <connections>
                 <outlet property="labelAlbumName" destination="hRN-6v-WLL" id="S4b-4x-rsn"/>
+                <outlet property="labelArtistName" destination="6xi-91-MtW" id="QyJ-Ya-HXQ"/>
+                <outlet property="labelTracksCount" destination="pnj-mC-Jst" id="KsC-tH-ipe"/>
             </connections>
             <point key="canvasLocation" x="243.47826086956525" y="111.83035714285714"/>
         </collectionViewCell>

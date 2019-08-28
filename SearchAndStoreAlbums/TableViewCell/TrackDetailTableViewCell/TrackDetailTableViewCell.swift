@@ -11,6 +11,5 @@ import UIKit
 class TrackDetailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelTrackName: UILabel!
-    @IBOutlet weak var labelTrackDuration: UILabel!
     
 }

@@ -25,9 +25,10 @@ class LocalAlbumsViewController: UIViewController {
     
     // MARK: - Init methods
     
-    init() {
+    init(albums: [Album]) {
         os_log(.info, log: .initialization, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
+        self.albums = albums
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -86,14 +87,17 @@ extension LocalAlbumsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        return 10
+        return albums.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BasicAlbumInfoCollectionViewCell.reuseIdentifier(), for: indexPath) as! BasicAlbumInfoCollectionViewCell
-        cell.labelAlbumName.text = "A"
+        let album = albums[indexPath.row]
+        cell.labelAlbumName.text = album.name
+        cell.labelArtistName.text = album.artist.name
+        cell.labelTracksCount.text = "No. of tracks: \(album.tracks.count)"
         return cell
     }
 }

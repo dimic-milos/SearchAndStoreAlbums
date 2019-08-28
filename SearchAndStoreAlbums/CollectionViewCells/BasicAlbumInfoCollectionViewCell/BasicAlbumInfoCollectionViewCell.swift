@@ -14,5 +14,8 @@ class BasicAlbumInfoCollectionViewCell: UICollectionViewCell {
     // MARK: - Outlets
 
     @IBOutlet weak var labelAlbumName: UILabel!
+    @IBOutlet weak var labelArtistName: UILabel!
+    @IBOutlet weak var labelTracksCount: UILabel!
+
     
 }

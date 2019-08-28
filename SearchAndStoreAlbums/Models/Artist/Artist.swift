@@ -22,4 +22,8 @@ struct Artist: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
     }
+    
+    init(name: String) {
+        self.name = name
+    }
 }

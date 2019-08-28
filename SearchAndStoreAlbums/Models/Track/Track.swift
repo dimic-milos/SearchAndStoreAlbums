@@ -12,17 +12,18 @@ struct Track: Decodable {
     
     private enum CodingKeys: CodingKey {
         case name
-        case duration
     }
     
     let name: String
-    let duration: String
     
     init(from decoder: Decoder) throws {
         os_log(.info, log: .codable, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = try container.decode(String.self, forKey: .name)
-        duration = try container.decode(String.self, forKey: .duration)
+    }
+    
+    init(name: String) {
+        self.name = name
     }
 }

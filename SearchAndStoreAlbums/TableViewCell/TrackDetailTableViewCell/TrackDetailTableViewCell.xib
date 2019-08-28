@@ -19,34 +19,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fll-uh-Uic">
-                        <rect key="frame" x="5" y="5" width="245" height="33.5"/>
+                        <rect key="frame" x="5" y="5" width="310" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fo-Ds-oCU">
-                        <rect key="frame" x="255" y="5" width="60" height="33.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="60" id="FdK-gd-YBT"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7Fo-Ds-oCU" firstAttribute="leading" secondItem="Fll-uh-Uic" secondAttribute="trailing" constant="5" id="5bM-gO-DrK"/>
-                    <constraint firstAttribute="bottom" secondItem="7Fo-Ds-oCU" secondAttribute="bottom" constant="5" id="EYb-8l-rph"/>
-                    <constraint firstAttribute="trailing" secondItem="7Fo-Ds-oCU" secondAttribute="trailing" constant="5" id="N3p-8F-lAe"/>
-                    <constraint firstItem="7Fo-Ds-oCU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="SdS-o4-SvF"/>
                     <constraint firstItem="Fll-uh-Uic" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="azO-9J-chu"/>
                     <constraint firstItem="Fll-uh-Uic" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="ln9-Ey-wcN"/>
                     <constraint firstAttribute="bottom" secondItem="Fll-uh-Uic" secondAttribute="bottom" constant="5" id="wje-fZ-3Pi"/>
+                    <constraint firstAttribute="trailing" secondItem="Fll-uh-Uic" secondAttribute="trailing" constant="5" id="wzB-ke-k6w"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="labelTrackDuration" destination="7Fo-Ds-oCU" id="thg-bk-lde"/>
                 <outlet property="labelTrackName" destination="Fll-uh-Uic" id="1xS-b3-Ezs"/>
             </connections>
         </tableViewCell>
