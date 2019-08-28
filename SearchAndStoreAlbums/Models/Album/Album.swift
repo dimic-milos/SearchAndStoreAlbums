@@ -32,12 +32,12 @@ struct Album: Decodable {
         image = try container.decode([AlbumImage].self, forKey: .image)
     }
     
-    init(name: String, artistName: String, tracks: [Track], isPersisted: Bool) {
+    init(name: String, artistName: String, tracks: [Track], image: [AlbumImage], isPersisted: Bool) {
         self.name = name
         self.artist = Artist(name: artistName)
         self.isPersisted = isPersisted
         self.tracks = tracks
-        self.image = []
+        self.image = image
     }
 }
 

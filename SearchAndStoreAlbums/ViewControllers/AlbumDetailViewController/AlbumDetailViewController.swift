@@ -77,9 +77,7 @@ class AlbumDetailViewController: UIViewController {
         
         labelAlbumName.text = album.name
         labelArtistName.text = album.artist.name
-        if album.image.count == 4 {
-            setImage(toImageView: imageViewAlbumArt, withImageUrlSting: album.image[3].imageUrl)
-        }
+        setImage(toImageView: imageViewAlbumArt, withImageUrlSting: album.image.first?.imageUrl)
         
         let buttonTitle = album.isPersisted ? "Remove" : "Save"
         buttonToggleAlbumPersistence.setTitle(buttonTitle, for: .normal)

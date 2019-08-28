@@ -19,5 +19,6 @@ extension CDAlbum {
     @NSManaged public var name: String?
     @NSManaged public var artist: String?
     @NSManaged public var tracks: [String]?
+    @NSManaged public var image: [String]?
 
 }

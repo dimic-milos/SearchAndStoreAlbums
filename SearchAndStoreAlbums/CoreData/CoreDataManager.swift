@@ -58,7 +58,7 @@ class CoreDataManager: Persister {
         }
     }
 
-    func insertAlbum(withName name: String, artistName: String, tracks: [String]) -> CDAlbum? {
+    func insertAlbum(withName name: String, artistName: String, tracks: [String],  image: [String]) -> CDAlbum? {
         os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
         let managedContext = persistentContainer.viewContext
@@ -69,6 +69,7 @@ class CoreDataManager: Persister {
         persistedAlbum.setValue(name, forKeyPath: "name")
         persistedAlbum.setValue(artistName, forKeyPath: "artist")
         persistedAlbum.setValue(tracks, forKeyPath: "tracks")
+        persistedAlbum.setValue(image, forKeyPath: "image")
 
         do {
             try managedContext.save()

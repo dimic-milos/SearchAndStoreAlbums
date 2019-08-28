@@ -38,7 +38,7 @@ class ApplicationCoordinator: NavigationCoordinator {
         window.set(rootViewController: rootViewController)
         rootViewController.setNavigationBarHidden(true, animated: false)
         
-        insertAlbum(withName: "nugat", artistName: "michael jackson", tracks: ["prva", "druga",  "treca"])
+//        insertAlbum(withName: "some", artistName: "superiska", tracks: ["prva", "druga",  "treca"], image: ["www"])
         showOfflineAlbums()
 
     }
@@ -84,8 +84,8 @@ class ApplicationCoordinator: NavigationCoordinator {
         detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))
     }
     
-    private func insertAlbum(withName albumName: String, artistName: String, tracks: [String]) {
-        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks)
+    private func insertAlbum(withName albumName: String, artistName: String, tracks: [String], image: [String]) {
+        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image)
     }
 
     private func map(cdAlbums: [CDAlbum]) -> [Album] {
@@ -103,8 +103,12 @@ class ApplicationCoordinator: NavigationCoordinator {
                 os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                 return
             }
-                        
-            let album = Album(name: albumName, artistName: artistName, tracks: tracks.map { Track(name: $0) }, isPersisted: true)
+            guard let image = $0.image as? [String] else {
+                os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            
+            let album = Album(name: albumName, artistName: artistName, tracks: tracks.map { Track(name: $0) }, image: image.map { AlbumImage(imageUrl: $0) }, isPersisted: true)
             albums.append(album)
         }
         return albums
