@@ -38,9 +38,7 @@ class ApplicationCoordinator: NavigationCoordinator {
         window.set(rootViewController: rootViewController)
         rootViewController.setNavigationBarHidden(true, animated: false)
         
-//        insertAlbum(withName: "some", artistName: "superiska", tracks: ["prva", "druga",  "treca"], image: ["www"])
         showOfflineAlbums()
-
     }
     
     // MARK: - Private methods
@@ -83,12 +81,10 @@ class ApplicationCoordinator: NavigationCoordinator {
         add(childCoordinator: detailedInfoCoordinator)
         detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))
     }
-    
-    private func insertAlbum(withName albumName: String, artistName: String, tracks: [String], image: [String]) {
-        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image)
-    }
 
     private func map(cdAlbums: [CDAlbum]) -> [Album] {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
         var albums: [Album] = []
         cdAlbums.forEach {
             guard let albumName = $0.name else {
@@ -141,10 +137,10 @@ extension ApplicationCoordinator: AlbumSearchCoordinatorDelegate {
     func didFinish(withArtist artist: Artist?, in albumSearchCoordinator: AlbumSearchCoordinator) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
+        remove(childCoordinator: albumSearchCoordinator)
         if let artist = artist {
             startDetailedInfoCoordinator(forArtist: artist)
         }
-        remove(childCoordinator: albumSearchCoordinator)
     }
 }
 
@@ -153,12 +149,14 @@ extension ApplicationCoordinator: DetailedInfoCoordinatorDelegate {
     // MARK: - DetailedInfoCoordinatorDelegate
     
     func didFinish(_ detailedInfoCoordinator: DetailedInfoCoordinator) {
-        
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
         remove(childCoordinator: detailedInfoCoordinator)
     }
     
     func shoudContinue(toArtistSearch: Bool, detailedInfoCoordinator: DetailedInfoCoordinator) {
-        
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
         remove(childCoordinator: detailedInfoCoordinator)
         startAlbumSearchFlow()
     }

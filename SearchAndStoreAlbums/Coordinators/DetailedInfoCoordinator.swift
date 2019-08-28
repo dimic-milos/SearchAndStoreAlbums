@@ -42,8 +42,8 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         
         switch flow {
             
-        case .AlbumDetail:
-            break
+        case .AlbumDetail(let album):
+            showAlbumDetailViewController(withAlbum: album)
         case .AlbumsList(let artist):
             getTopAlbums(byArtist: artist)
         }
@@ -58,8 +58,6 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         albumDetailViewController.delegate = self
         show(albumDetailViewController)
     }
-    
-
     
     private func showAlbumsListViewController(withAlbums albums: [Album]) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
@@ -136,6 +134,13 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     }
     
     
+    private func insertAlbum(withName albumName: String, artistName: String, tracks: [String], image: [String]) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image)
+    }
+    
+    
 }
 
 extension DetailedInfoCoordinator: AlbumsListViewControllerDelegate {
@@ -170,7 +175,8 @@ extension DetailedInfoCoordinator: AlbumDetailViewControllerDelegate {
     
     func store(album: Album, albumDetailViewController: AlbumDetailViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
+        
+        insertAlbum(withName: album.name, artistName: album.artist.name, tracks: album.tracks.map { $0.name }, image: album.image.map { $0.imageUrl} )
     }
     
     func delete(album: Album, albumDetailViewController: AlbumDetailViewController) {

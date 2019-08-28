@@ -108,7 +108,8 @@ extension LocalAlbumsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
+        
+        delegate?.didSelect(album: albums[indexPath.row], in: self)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
