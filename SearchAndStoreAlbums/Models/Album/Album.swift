@@ -19,7 +19,9 @@ struct Album: Decodable {
     let name: String
     let artist: Artist
     let image: [AlbumImage]
+    
     var tracks: [Track] = []
+    var isPersisted = false
     
     init(from decoder: Decoder) throws {
         os_log(.info, log: .codable, "function: %s, line: %i, \nfile: %s", #function, #line, #file)

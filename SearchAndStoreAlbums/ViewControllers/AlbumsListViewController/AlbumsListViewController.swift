@@ -106,7 +106,7 @@ extension AlbumsListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: DetailAlbumTableViewCell.reuseIdentifier()) as! DetailAlbumTableViewCell
         
         let album = albums[indexPath.row]
-        cell.setCell(albumName: album.name, isAvailableOffline: true)
+        cell.setCell(albumName: album.name, isAvailableOffline: album.isPersisted)
         setImage(toImageView: cell.imageViewAlbumArt, withImageUrlSting: album.image.first?.imageUrl)
         return cell
     }

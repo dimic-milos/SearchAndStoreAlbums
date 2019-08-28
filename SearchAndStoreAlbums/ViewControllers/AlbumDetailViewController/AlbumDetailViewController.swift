@@ -11,6 +11,8 @@ import UIKit
 
 class AlbumDetailViewController: UIViewController {
     
+    // MARK: - Outlets
+
     @IBOutlet weak var viewContainer: UIView!
     @IBOutlet weak var viewAlbumDetail: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,6 +20,8 @@ class AlbumDetailViewController: UIViewController {
     @IBOutlet weak var labelAlbumName: UILabel!
     @IBOutlet weak var labelArtistName: UILabel!
     @IBOutlet weak var imageViewAlbumArt: UIImageView!
+    
+    @IBOutlet weak var buttonToggleAlbumPersistence: UIButton!
     
     // MARK: - Properties
     
@@ -76,6 +80,9 @@ class AlbumDetailViewController: UIViewController {
         if album.image.count == 4 {
             setImage(toImageView: imageViewAlbumArt, withImageUrlSting: album.image[3].imageUrl)
         }
+        
+        let buttonTitle = album.isPersisted ? "Remove" : "Save"
+        buttonToggleAlbumPersistence.setTitle(buttonTitle, for: .normal)
     }
     
     private func setupHeaderView() {
@@ -105,6 +112,19 @@ class AlbumDetailViewController: UIViewController {
             imageView.image = #imageLiteral(resourceName: "taxi")
         }
     }
+    
+    // MARK: - Action methods
+    
+    @IBAction func buttonToggleAlbumPersistenceTapped(_ sender: UIButton) {
+        os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        if album.isPersisted {
+            delegate?.delete(album: album, albumDetailViewController: self)
+        } else {
+            delegate?.store(album: album, albumDetailViewController: self)
+        }
+    }
+    
 }
 
 extension AlbumDetailViewController: UITableViewDataSource {

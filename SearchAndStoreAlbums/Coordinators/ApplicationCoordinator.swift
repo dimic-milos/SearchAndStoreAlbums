@@ -62,7 +62,7 @@ class ApplicationCoordinator: NavigationCoordinator {
     private func startDetailedInfoCoordinator(forArtist artist: Artist) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, persister: persister, rootViewController: rootViewController)
         detailedInfoCoordinator.delegate = self
         add(childCoordinator: detailedInfoCoordinator)
         detailedInfoCoordinator.start(withFlow: .AlbumsList(artist: artist))
@@ -71,7 +71,7 @@ class ApplicationCoordinator: NavigationCoordinator {
     private func startDetailedInfoCoordinator(forAlbum album: Album) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, persister: persister, rootViewController: rootViewController)
         detailedInfoCoordinator.delegate = self
         add(childCoordinator: detailedInfoCoordinator)
         detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))

@@ -22,6 +22,7 @@ class DetailAlbumTableViewCell: UITableViewCell {
     
     func setCell(albumName: String, isAvailableOffline: Bool) {
         labelAlbumName.text = albumName
+        labelAvailableOffline.text = isAvailableOffline ? "Available offline" : "Not available offline"
         labelAvailableOffline.textColor = isAvailableOffline ? .green : .red
     }
 }

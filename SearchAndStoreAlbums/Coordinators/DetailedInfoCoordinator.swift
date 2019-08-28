@@ -20,16 +20,18 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     
     private let networkingService: NetworkingService
     private let parserService: ParserService
-    
+    private let persister: Persister
+
     weak var delegate: DetailedInfoCoordinatorDelegate?
     
     // MARK: - Init methods
     
-    init(networkingService: NetworkingService, parserService: ParserService, rootViewController: UINavigationController) {
+    init(networkingService: NetworkingService, parserService: ParserService, persister: Persister, rootViewController: UINavigationController) {
         os_log(.info, log: .initialization, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         self.networkingService = networkingService
         self.parserService = parserService
+        self.persister = persister
         super.init(rootViewController: rootViewController)
     }
     
