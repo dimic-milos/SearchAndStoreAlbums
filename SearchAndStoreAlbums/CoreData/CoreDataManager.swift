@@ -79,6 +79,29 @@ class CoreDataManager: Persister {
             fatalError()
         }
     }
+    
+    func deleteAlbum(withName albumName: String) -> [CDAlbum]? {
+        os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        let managedContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDAlbum")
+        
+        fetchRequest.predicate = NSPredicate(format: "name == %@", albumName)
+        do {
+            let albums = try managedContext.fetch(fetchRequest)
+            var deletedAlbums: [CDAlbum] = []
+            
+            for album in albums {
+                managedContext.delete(album)
+                try managedContext.save()
+                deletedAlbums.append(album as! CDAlbum)
+            }
+            return deletedAlbums
+        } catch {
+            os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return nil
+        }
+    }
 
     // MARK: - Private methods
     

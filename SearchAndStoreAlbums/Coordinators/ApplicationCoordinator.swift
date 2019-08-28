@@ -58,7 +58,7 @@ class ApplicationCoordinator: NavigationCoordinator {
     private func startAlbumSearchFlow() {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        let albumSearchCoordinator = AlbumSearchCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        let albumSearchCoordinator = AlbumSearchCoordinator(artistNameCapable: networkingService, parserService: parserService, rootViewController: rootViewController)
         albumSearchCoordinator.delegate = self
         add(childCoordinator: albumSearchCoordinator)
         albumSearchCoordinator.start()

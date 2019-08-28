@@ -10,7 +10,7 @@ import os
 import Alamofire
 import AlamofireImage
 
-class NetworkingService {
+class NetworkingService: ArtistNameCapable {
     
     typealias APIResponseCallback = (APIResponse) -> ()
     

@@ -13,17 +13,17 @@ class AlbumSearchCoordinator: NavigationCoordinator {
     
     // MARK: - Properties
     
-    private let networkingService: NetworkingService
+    private let artistNameCapable: ArtistNameCapable
     private let parserService: ParserService
     
     weak var delegate: AlbumSearchCoordinatorDelegate?
     
     // MARK: - Init methods
     
-    init(networkingService: NetworkingService, parserService: ParserService, rootViewController: UINavigationController) {
+    init(artistNameCapable: ArtistNameCapable, parserService: ParserService, rootViewController: UINavigationController) {
         os_log(.info, log: .initialization, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        self.networkingService = networkingService
+        self.artistNameCapable = artistNameCapable
         self.parserService = parserService
         super.init(rootViewController: rootViewController)
     }
@@ -59,7 +59,7 @@ extension AlbumSearchCoordinator: ArtistSearchViewControllerDelegate {
     func didTapSearch(forText searchText: String, _ artistSearchViewController: ArtistSearchViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        networkingService.getAllArtists(withName: searchText) { [weak self] (response) in
+        artistNameCapable.getAllArtists(withName: searchText) { [weak self] (response) in
             guard let self = self else {
                 os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                 return

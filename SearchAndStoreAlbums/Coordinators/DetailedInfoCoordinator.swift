@@ -140,6 +140,12 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image)
     }
     
+    private func deleteAlbum(withName albumName: String) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        _ = persister.deleteAlbum(withName: albumName)
+    }
+    
     
 }
 
@@ -181,7 +187,8 @@ extension DetailedInfoCoordinator: AlbumDetailViewControllerDelegate {
     
     func delete(album: Album, albumDetailViewController: AlbumDetailViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
+        
+        deleteAlbum(withName: album.name)
     }
     
     func didTapBack(_ albumDetailViewController: AlbumDetailViewController) {

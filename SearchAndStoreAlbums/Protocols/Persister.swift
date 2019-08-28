@@ -9,4 +9,5 @@
 protocol Persister {
     func fetchAllAlbums() -> [CDAlbum]?
     func insertAlbum(withName name: String, artistName: String, tracks: [String], image: [String]) -> CDAlbum?
+    func deleteAlbum(withName albumName: String) -> [CDAlbum]?
 }
