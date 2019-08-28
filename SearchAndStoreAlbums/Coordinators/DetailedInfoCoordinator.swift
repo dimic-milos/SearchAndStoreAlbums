@@ -67,6 +67,24 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         show(albumsListViewController)
     }
     
+    private func markOffline(albums: [Album]) -> [Album] {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        var markedAlbums: [Album] = []
+        
+        albums.forEach {
+            var markedAlbum = $0
+            if persister.fetchAllAlbums(withName: $0.name)?.count ?? 0 > 0 {
+                markedAlbum.isPersisted = true
+            } else {
+                markedAlbum.isPersisted = false
+            }
+            markedAlbums.append(markedAlbum)
+        }
+        
+        return markedAlbums
+    }
+    
     private func getTopAlbums(byArtist artist: Artist) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
@@ -88,7 +106,7 @@ class DetailedInfoCoordinator: NavigationCoordinator {
                 switch parseResult {
                     
                 case .success(let albums):
-                    self.showAlbumsListViewController(withAlbums: albums)
+                    self.showAlbumsListViewController(withAlbums: self.markOffline(albums: albums))
                 case .failure(_):
                     break
                 }
@@ -132,7 +150,6 @@ class DetailedInfoCoordinator: NavigationCoordinator {
             }
         }
     }
-    
     
     private func insertAlbum(withName albumName: String, artistName: String, tracks: [String], image: [String]) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)

@@ -10,6 +10,7 @@
 		C9B9B6BC6ED32737C72194F2 /* Pods_SearchAndStoreAlbums.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AB25E627BAC861E84668A2F /* Pods_SearchAndStoreAlbums.framework */; };
 		E937057C231666A900D2DE9B /* AlbumSearchCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E937057B231666A900D2DE9B /* AlbumSearchCoordinatorTests.swift */; };
 		E937057E2316676300D2DE9B /* ArtistNameCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E937057D2316676300D2DE9B /* ArtistNameCapable.swift */; };
+		E937058123166AC300D2DE9B /* ArtistSearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E937058023166AC300D2DE9B /* ArtistSearchViewControllerTests.swift */; };
 		E93976A02316475E0068CA8B /* SearchAndStoreAlbums.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E939769C231647080068CA8B /* SearchAndStoreAlbums.xcdatamodeld */; };
 		E93F3E79231590C00098F16C /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */; };
 		E93F3E7B231590E70098F16C /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */; };
@@ -79,6 +80,7 @@
 		964FB5F2AE51577E1C548EB0 /* Pods-SearchAndStoreAlbums.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAndStoreAlbums.debug.xcconfig"; path = "Target Support Files/Pods-SearchAndStoreAlbums/Pods-SearchAndStoreAlbums.debug.xcconfig"; sourceTree = "<group>"; };
 		E937057B231666A900D2DE9B /* AlbumSearchCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSearchCoordinatorTests.swift; sourceTree = "<group>"; };
 		E937057D2316676300D2DE9B /* ArtistNameCapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistNameCapable.swift; sourceTree = "<group>"; };
+		E937058023166AC300D2DE9B /* ArtistSearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewControllerTests.swift; sourceTree = "<group>"; };
 		E939769D231647080068CA8B /* SearchAndStoreAlbums.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SearchAndStoreAlbums.xcdatamodel; sourceTree = "<group>"; };
 		E93F3E78231590C00098F16C /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		E93F3E7A231590E70098F16C /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 				E937057B231666A900D2DE9B /* AlbumSearchCoordinatorTests.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E937057F23166A8800D2DE9B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E937058023166AC300D2DE9B /* ArtistSearchViewControllerTests.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E93F3E6E23158EB10098F16C /* ViewControllers */ = {
@@ -502,6 +512,7 @@
 		E9C1E445231583A9006A9F74 /* SearchAndStoreAlbumsTests */ = {
 			isa = PBXGroup;
 			children = (
+				E937057F23166A8800D2DE9B /* ViewControllers */,
 				E937057A2316669100D2DE9B /* Coordinator */,
 				E9C1E446231583A9006A9F74 /* SearchAndStoreAlbumsTests.swift */,
 				E9C1E448231583A9006A9F74 /* Info.plist */,
@@ -709,6 +720,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E937058123166AC300D2DE9B /* ArtistSearchViewControllerTests.swift in Sources */,
 				E937057C231666A900D2DE9B /* AlbumSearchCoordinatorTests.swift in Sources */,
 				E9C1E447231583A9006A9F74 /* SearchAndStoreAlbumsTests.swift in Sources */,
 			);

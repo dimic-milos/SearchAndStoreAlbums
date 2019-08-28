@@ -57,6 +57,27 @@ class CoreDataManager: Persister {
             return nil
         }
     }
+    
+    func fetchAllAlbums(withName albumName: String) -> [CDAlbum]? {
+        os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        let managedContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "CDAlbum")
+        
+        fetchRequest.predicate = NSPredicate(format: "name == %@", albumName)
+        do {
+            let albums = try managedContext.fetch(fetchRequest) as! [CDAlbum]
+//            var deletedAlbums: [CDAlbum] = []
+//
+//            for album in albums {
+//                deletedAlbums.append(album as! CDAlbum)
+//            }
+            return albums
+        } catch {
+            os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return nil
+        }
+    }
 
     func insertAlbum(withName name: String, artistName: String, tracks: [String],  image: [String]) -> CDAlbum? {
         os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
