@@ -8,4 +8,5 @@
 
 protocol LocalAlbumsViewControllerDelegate: class {
     func didRequestToSearchForArtists(_ in: LocalAlbumsViewController)
+    func didSelect(album: Album, in localAlbumsViewController: LocalAlbumsViewController)
 }

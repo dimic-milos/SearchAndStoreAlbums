@@ -15,4 +15,8 @@ extension UITableViewCell {
         let finalResult = "SearchAndStoreAlbums." + String(descriptionParts.last ?? "")
         return finalResult
     }
+    
+    @objc open class func defaultHeight() -> CGFloat {
+        return 70
+    }
 }

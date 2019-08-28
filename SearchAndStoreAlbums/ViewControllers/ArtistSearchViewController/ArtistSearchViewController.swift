@@ -175,8 +175,8 @@ extension ArtistSearchViewController: UITableViewDataSource {
         os_log(.info, log: .frequent, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         let cell =  UITableViewCell()
-        let album = artists[indexPath.row]
-        cell.textLabel?.text = album.name
+        let artist = artists[indexPath.row]
+        cell.textLabel?.text = artist.name
         return cell
     }
 }

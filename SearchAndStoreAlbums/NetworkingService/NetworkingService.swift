@@ -28,6 +28,7 @@ class NetworkingService {
     }
     
     enum APIRequestError: Error {
+        case percentEncodingFailed
         case invalidEndpoint
         case serializationFailed
         case responseIsNotHTTPURL
@@ -69,6 +70,7 @@ class NetworkingService {
     
     private struct Method {
         static let ArtistSearch     = "artist.search&artist="
+        static let TopAlbums        = "artist.gettopalbums&artist="
     }
     
     // MARK: - Properties
@@ -84,7 +86,39 @@ class NetworkingService {
     func getAllArtists(withName artistName: String, apiResponse: APIResponseCallback?) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-        let endpoint = baseURL + Prefix.Method + Method.ArtistSearch + artistName + Prefix.ApiKey + Authorisation.apiKey + Prefix.FormatJSON
+        guard let artistNamePercentEncoded = artistName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            let error = APIRequestError.percentEncodingFailed
+            os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
+            apiResponse?(APIResponse(success: false, error: error, message: error.description))
+            return
+        }
+        
+        let endpoint = baseURL + Prefix.Method + Method.ArtistSearch + artistNamePercentEncoded + Prefix.ApiKey + Authorisation.apiKey + Prefix.FormatJSON
+        get(endpoint: endpoint) { (response) in
+            apiResponse?(response)
+        }
+    }
+    
+    func getTopAlbums(byArtist artistName: String, apiResponse: APIResponseCallback?) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        guard let artistNamePercentEncoded = artistName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            let error = APIRequestError.percentEncodingFailed
+            os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", error.description, #function, #line, #file)
+            apiResponse?(APIResponse(success: false, error: error, message: error.description))
+            return
+        }
+        
+        let endpoint = baseURL + Prefix.Method + Method.TopAlbums + artistNamePercentEncoded + Prefix.ApiKey + Authorisation.apiKey + Prefix.FormatJSON
+        get(endpoint: endpoint) { (response) in
+            apiResponse?(response)
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func get(endpoint: String, apiResponse: APIResponseCallback?) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         guard let url = URL(string: endpoint) else {
             os_log(.error, log: .network, "error: %s, function: %s, line: %i, \nfile: %s", APIRequestError.invalidEndpoint.description, #function, #line, #file)

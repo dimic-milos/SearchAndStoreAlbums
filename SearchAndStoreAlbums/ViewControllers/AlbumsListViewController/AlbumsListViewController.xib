@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumsListViewController" customModule="SearchAndStoreAlbums" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="yoS-R7-ipp" id="Vot-5W-ai4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewContainer" destination="xKB-Ne-TYp" id="4ik-L2-ndz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-Ne-TYp">
+                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="lLw-vl-riH"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="yoS-R7-ipp">
+                    <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bnK-qe-ZWA"/>
+                        <outlet property="delegate" destination="-1" id="7kL-8v-sf7"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xKB-Ne-TYp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="K3E-ih-0KB"/>
+                <constraint firstItem="yoS-R7-ipp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="M4D-z7-5lu"/>
+                <constraint firstItem="xKB-Ne-TYp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZbV-4u-pW5"/>
+                <constraint firstItem="yoS-R7-ipp" firstAttribute="top" secondItem="xKB-Ne-TYp" secondAttribute="bottom" id="i7x-fC-n6g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yoS-R7-ipp" secondAttribute="bottom" id="qs9-SP-ncH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xKB-Ne-TYp" secondAttribute="trailing" id="r1t-34-qFi"/>
+                <constraint firstItem="yoS-R7-ipp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tkH-QD-nR8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

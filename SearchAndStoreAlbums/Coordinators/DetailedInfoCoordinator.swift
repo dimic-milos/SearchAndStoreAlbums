@@ -1,5 +1,5 @@
 //
-//  AlbumSearchCoordinator.swift
+//  DetailedInfoCoordinator.swift
 //  SearchAndStoreAlbums
 //
 //  Created by Dimic Milos on 8/27/19.
@@ -9,14 +9,19 @@
 import os
 import UIKit
 
-class AlbumSearchCoordinator: NavigationCoordinator {
+class DetailedInfoCoordinator: NavigationCoordinator {
+    
+    enum Flow {
+        case AlbumDetail(album: Album)
+        case AlbumsList(artist: Artist)
+    }
     
     // MARK: - Properties
     
     private let networkingService: NetworkingService
     private let parserService: ParserService
     
-    weak var delegate: AlbumSearchCoordinatorDelegate?
+    weak var delegate: DetailedInfoCoordinatorDelegate?
     
     // MARK: - Init methods
     
@@ -28,38 +33,41 @@ class AlbumSearchCoordinator: NavigationCoordinator {
         super.init(rootViewController: rootViewController)
     }
     
-    // MARK: - Override methods
+    // MARK: - Public methods
     
-    override func start() {
+    func start(withFlow flow: Flow) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        startArtistSearchViewController()
+        switch flow {
+            
+        case .AlbumDetail:
+            startAlbumDetailViewController()
+        case .AlbumsList(let artist):
+            getTopAlbums(byArtist: artist)
+        }
     }
     
     // MARK: - Private methods
     
-    private func startArtistSearchViewController() {
-        let artistSearchViewController = ArtistSearchViewController()
-        artistSearchViewController.delegate = self
-        present(artistSearchViewController)
-    }
-}
+    private func startAlbumDetailViewController() {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
-extension AlbumSearchCoordinator: ArtistSearchViewControllerDelegate {
+    }
     
-    //  MARK: - ArtistSearchViewControllerDelegate
+    private func startAlbumsListFlow(forArtist: Artist) {
+        
+    }
     
-    func didTapSearchBarCancelButton(in artistSearchViewController: ArtistSearchViewController) {
+    private func showAlbumsListViewController(withAlbums albums: [Album]) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        dismiss()
-        delegate?.didFinish(withArtist: nil, in: self)
+        let albumsListViewController = AlbumsListViewController(albums: albums)
+        albumsListViewController.delegate = self
+        show(albumsListViewController)
     }
     
-    func didTapSearch(forText searchText: String, _ artistSearchViewController: ArtistSearchViewController) {
-        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-
-        networkingService.getAllArtists(withName: searchText) { [weak self] (response) in
+    private func getTopAlbums(byArtist artist: Artist) {
+        networkingService.getTopAlbums(byArtist: artist.name) { [weak self] (response) in
             guard let self = self else {
                 os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                 return
@@ -72,12 +80,12 @@ extension AlbumSearchCoordinator: ArtistSearchViewControllerDelegate {
                     os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
                     return
                 }
-                let parseResult = self.parserService.parseArtists(fromData: data)
+                let parseResult = self.parserService.parseAlbums(fromData: data)
                 
                 switch parseResult {
                     
-                case .success(let artists):
-                    artistSearchViewController.reload(withArtists: artists)
+                case .success(let albums):
+                    self.showAlbumsListViewController(withAlbums: albums)
                 case .failure(_):
                     break
                 }
@@ -88,13 +96,28 @@ extension AlbumSearchCoordinator: ArtistSearchViewControllerDelegate {
         }
     }
     
-    func didSelect(artist: Artist, in artistSearchViewController: ArtistSearchViewController) {
-        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-        
-        dismiss()
-        delegate?.didFinish(withArtist: artist, in: self)
-    }
-    
     
 }
 
+extension DetailedInfoCoordinator: AlbumsListViewControllerDelegate {
+    
+    // MARK: - AlbumsListViewControllerDelegate
+    
+    func store(album: Album, albumsListViewController: AlbumsListViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+    
+    func delete(album: Album, albumsListViewController: AlbumsListViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+    }
+
+    func didTapBack(_ albumsListViewController: AlbumsListViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        pop()
+        delegate?.didFinish(self)
+    }
+    
+}

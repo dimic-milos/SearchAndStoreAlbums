@@ -11,6 +11,8 @@ import UIKit
 
 class HeaderView: UIView {
 
+    @IBOutlet weak var buttonBack: UIButton!
+    
     // MARK: - Properties
     
     weak var delegate: HeaderViewDelegate?
@@ -23,5 +25,10 @@ class HeaderView: UIView {
         delegate?.didTapButtonSearchForArtists(self)
     }
     
+    @IBAction func buttonBackTapped(_ sender: UIButton) {
+        os_log(.info, log: .action, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
+        delegate?.didTapButtonBack(self)
+    }
+    
 }

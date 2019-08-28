@@ -20,15 +20,5 @@ class RoundedButton: UIButton {
     override func draw(_ rect: CGRect) {
         layer.cornerRadius = rect.height/2
         
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        let originalSize = super.intrinsicContentSize
-        if let titleText = titleLabel?.text, let font = titleLabel?.font {
-            let width = titleText.size(withAttributes: [NSAttributedString.Key.font: font]).width
-            return CGSize(width: width + 20 , height: originalSize.height)
-        } else {
-            return super.intrinsicContentSize
-        }
-    }
+    }    
 }

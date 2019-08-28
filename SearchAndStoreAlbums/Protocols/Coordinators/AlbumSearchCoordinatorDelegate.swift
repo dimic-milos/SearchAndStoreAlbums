@@ -7,5 +7,5 @@
 //
 
 protocol AlbumSearchCoordinatorDelegate: class {
-    func didFinish(_ albumSearchCoordinator: AlbumSearchCoordinator)
+    func didFinish(withArtist artist: Artist?, in albumSearchCoordinator: AlbumSearchCoordinator)
 }

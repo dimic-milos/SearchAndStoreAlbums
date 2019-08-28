@@ -58,6 +58,24 @@ class ApplicationCoordinator: NavigationCoordinator {
         add(childCoordinator: albumSearchCoordinator)
         albumSearchCoordinator.start()
     }
+    
+    private func startDetailedInfoCoordinator(forArtist artist: Artist) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        detailedInfoCoordinator.delegate = self
+        add(childCoordinator: detailedInfoCoordinator)
+        detailedInfoCoordinator.start(withFlow: .AlbumsList(artist: artist))
+    }
+    
+    private func startDetailedInfoCoordinator(forAlbum album: Album) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        let detailedInfoCoordinator = DetailedInfoCoordinator(networkingService: networkingService, parserService: parserService, rootViewController: rootViewController)
+        detailedInfoCoordinator.delegate = self
+        add(childCoordinator: detailedInfoCoordinator)
+        detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))
+    }
 }
 
 extension ApplicationCoordinator: LocalAlbumsViewControllerDelegate {
@@ -69,7 +87,13 @@ extension ApplicationCoordinator: LocalAlbumsViewControllerDelegate {
         
         pop()
         startAlbumSearchFlow()
-        
+    }
+    
+    func didSelect(album: Album, in localAlbumsViewController: LocalAlbumsViewController) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        pop()
+        startDetailedInfoCoordinator(forAlbum: album)
     }
 }
 
@@ -77,11 +101,25 @@ extension ApplicationCoordinator: AlbumSearchCoordinatorDelegate {
     
     // MARK: - AlbumSearchCoordinatorDelegate
     
-    func didFinish(_ albumSearchCoordinator: AlbumSearchCoordinator) {
+    func didFinish(withArtist artist: Artist?, in albumSearchCoordinator: AlbumSearchCoordinator) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
+        if let artist = artist {
+            startDetailedInfoCoordinator(forArtist: artist)
+        }
         remove(childCoordinator: albumSearchCoordinator)
     }
+}
+
+extension ApplicationCoordinator: DetailedInfoCoordinatorDelegate {
+    
+    // MARK: - DetailedInfoCoordinatorDelegate
+    
+    func didFinish(_ detailedInfoCoordinator: DetailedInfoCoordinator) {
+        
+        remove(childCoordinator: detailedInfoCoordinator)
+    }
+    
     
     
 }

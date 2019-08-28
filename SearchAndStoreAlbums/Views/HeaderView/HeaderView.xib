@@ -16,26 +16,46 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pd-xt-x5Z" customClass="RoundedButton" customModule="SearchAndStoreAlbums" customModuleProvider="target">
-                    <rect key="frame" x="20" y="10" width="674" height="72"/>
+                    <rect key="frame" x="546" y="10" width="148" height="72"/>
                     <color key="backgroundColor" red="0.34666699169999998" green="0.63203471899999997" blue="0.83116215469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Press here to search for artists">
+                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" title="Search for artists">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="buttonSearchForArtistsTapped:" destination="-1" eventType="touchUpInside" id="aox-Bo-TA8"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-6f-7Qa" customClass="RoundedButton" customModule="SearchAndStoreAlbums" customModuleProvider="target">
+                    <rect key="frame" x="20" y="10" width="70" height="72"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="API-14-lz0"/>
+                    </constraints>
+                    <state key="normal" title="Back">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="buttonBackTapped:" destination="-1" eventType="touchUpInside" id="5ix-aq-WvG"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0pd-xt-x5Z" secondAttribute="bottom" constant="10" id="Lj0-Je-pGk"/>
-                <constraint firstItem="0pd-xt-x5Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="SfM-i4-crs"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0pd-xt-x5Z" secondAttribute="trailing" constant="20" id="U24-zc-ZqS"/>
+                <constraint firstItem="d8D-6f-7Qa" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="XMz-wF-cXq"/>
                 <constraint firstItem="0pd-xt-x5Z" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="eh4-gC-gJx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="d8D-6f-7Qa" secondAttribute="bottom" constant="10" id="ojU-Bz-iuu"/>
+                <constraint firstItem="0pd-xt-x5Z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="d8D-6f-7Qa" secondAttribute="trailing" constant="50" id="qZn-V1-VRz"/>
+                <constraint firstItem="d8D-6f-7Qa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="yoG-Oz-meY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="buttonBack" destination="d8D-6f-7Qa" id="dF9-NV-rgE"/>
+            </connections>
             <point key="canvasLocation" x="243.19999999999999" y="-72.863568215892059"/>
         </view>
     </objects>

@@ -71,6 +71,7 @@ class LocalAlbumsViewController: UIViewController {
         }
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.delegate = self
+        headerView.buttonBack.isHidden = true
         
         viewContainer.addSubview(headerView)
         viewContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-(0)-[headerView]-(0)-|", options: [], metrics: nil, views: ["headerView": headerView]))
@@ -122,6 +123,11 @@ extension LocalAlbumsViewController: HeaderViewDelegate {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
         delegate?.didRequestToSearchForArtists(self)
+    }
+    
+    func didTapButtonBack(_ headerView: HeaderView) {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
     }
 }
 

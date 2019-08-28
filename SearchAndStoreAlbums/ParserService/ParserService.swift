@@ -10,7 +10,36 @@ import Foundation
 
 class ParserService {
     
-    private struct Response: Decodable {
+    // MARK: - Public methods
+    
+    func parseArtists(fromData data: Data) -> (Result<[Artist], Error>) {
+        os_log(.info, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+
+        do {
+            let response = try JSONDecoder.init().decode(ArtistSearch.self, from: data)
+            return .success(response.results.artistmatches.artist)
+        } catch {
+            os_log(.error, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return .failure(error)
+        }
+    }
+    
+    func parseAlbums(fromData data: Data) -> (Result<[Album], Error>) {
+        os_log(.info, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        do {
+            let response = try JSONDecoder.init().decode(TopAlbumsSearch.self, from: data)
+            return .success(response.topalbums.album)
+        } catch {
+            os_log(.error, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+            return .failure(error)
+        }
+    }
+}
+
+extension ParserService {
+    
+    private struct ArtistSearch: Decodable {
         let results: Results
     }
     
@@ -21,18 +50,16 @@ class ParserService {
     private struct ArtistMatches: Decodable {
         let artist: [Artist]
     }
-    
-    // MARK: - Public methods
-    
-    func parseArtists(fromData data: Data) -> (Result<[Artist], Error>) {
-        os_log(.info, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+}
 
-        do {
-            let response = try JSONDecoder.init().decode(Response.self, from: data)
-            return .success(response.results.artistmatches.artist)
-        } catch {
-            os_log(.error, log: .parser, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-            return .failure(error)
-        }
+extension ParserService {
+    
+    private struct TopAlbumsSearch: Decodable {
+        let topalbums: AlbumSearch
     }
+    
+    private struct AlbumSearch: Decodable {
+        let album: [Album]
+    }
+    
 }

@@ -8,4 +8,5 @@
 
 protocol HeaderViewDelegate: class {
     func didTapButtonSearchForArtists(_ headerView: HeaderView)
+    func didTapButtonBack(_ headerView: HeaderView)
 }
