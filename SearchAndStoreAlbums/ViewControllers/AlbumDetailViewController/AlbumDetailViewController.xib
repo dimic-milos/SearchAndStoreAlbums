@@ -26,15 +26,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-RC-7wv" userLabel="nj">
+                    <rect key="frame" x="0.0" y="44" width="414" height="20"/>
+                    <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="MRC-1z-iNS"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNd-Ox-X0X">
-                    <rect key="frame" x="0.0" y="44" width="414" height="70"/>
+                    <rect key="frame" x="0.0" y="64" width="414" height="42"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="A99-E4-mgR"/>
+                        <constraint firstAttribute="height" constant="42" id="A99-E4-mgR"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFm-wb-mdW">
-                    <rect key="frame" x="0.0" y="114" width="414" height="300"/>
+                    <rect key="frame" x="0.0" y="106" width="414" height="300"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ck1-X2-lBn">
                             <rect key="frame" x="10" y="5" width="394" height="30"/>
@@ -92,7 +99,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Na-YK-XqF">
-                    <rect key="frame" x="0.0" y="414" width="414" height="448"/>
+                    <rect key="frame" x="0.0" y="406" width="414" height="456"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="XdI-Gg-DOl"/>
@@ -101,7 +108,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="CNd-Ox-X0X" firstAttribute="top" secondItem="lM9-RC-7wv" secondAttribute="bottom" id="44m-ve-lAB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Na-YK-XqF" secondAttribute="trailing" id="4J9-Oo-1aD"/>
+                <constraint firstItem="lM9-RC-7wv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CSk-du-taB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CNd-Ox-X0X" secondAttribute="trailing" id="EPg-EB-1ps"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3Na-YK-XqF" secondAttribute="bottom" id="Imq-4v-vD4"/>
                 <constraint firstItem="FFm-wb-mdW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MTk-sH-3qm"/>
@@ -110,7 +119,8 @@
                 <constraint firstItem="CNd-Ox-X0X" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Y0l-RK-1Fd"/>
                 <constraint firstItem="3Na-YK-XqF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZVw-Td-blg"/>
                 <constraint firstItem="3Na-YK-XqF" firstAttribute="top" secondItem="FFm-wb-mdW" secondAttribute="bottom" id="jV7-N5-Qws"/>
-                <constraint firstItem="CNd-Ox-X0X" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ukL-Tq-RSu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lM9-RC-7wv" secondAttribute="trailing" id="n1N-OT-zh8"/>
+                <constraint firstItem="lM9-RC-7wv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pbU-Cq-mWS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
