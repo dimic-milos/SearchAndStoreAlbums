@@ -79,7 +79,7 @@ class LocalAlbumsViewController: UIViewController {
     }
     
     private func setupHeaderView() {
-        #warning("load it directly from xib")
+//        #warning("load it directly from xib")
         headerView = HeaderView.fromNib()
         guard let headerView = headerView else {
             os_log(.error, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)

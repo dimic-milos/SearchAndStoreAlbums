@@ -26,22 +26,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-RC-7wv" userLabel="nj">
-                    <rect key="frame" x="0.0" y="44" width="414" height="20"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-RC-7wv" userLabel="nj" customClass="HeaderView" customModule="SearchAndStoreAlbums" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="0.0"/>
                     <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="MRC-1z-iNS"/>
+                        <constraint firstAttribute="height" id="MRC-1z-iNS"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNd-Ox-X0X">
-                    <rect key="frame" x="0.0" y="64" width="414" height="42"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="42"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="A99-E4-mgR"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFm-wb-mdW">
-                    <rect key="frame" x="0.0" y="106" width="414" height="300"/>
+                    <rect key="frame" x="0.0" y="86" width="414" height="300"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ck1-X2-lBn">
                             <rect key="frame" x="10" y="5" width="394" height="30"/>
@@ -99,7 +99,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="3Na-YK-XqF">
-                    <rect key="frame" x="0.0" y="406" width="414" height="456"/>
+                    <rect key="frame" x="0.0" y="386" width="414" height="476"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="XdI-Gg-DOl"/>
