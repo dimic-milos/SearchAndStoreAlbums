@@ -7,7 +7,6 @@
 //
 
 protocol Persister {
-    func map(cdAlbums: [CDAlbum]) -> [Album]
     func fetchAllAlbums() -> [CDAlbum]?
     func fetchAllAlbums(withName: String) -> [CDAlbum]?
     func insertAlbum(withName name: String, artistName: String, tracks: [String], image: [String]) -> CDAlbum?

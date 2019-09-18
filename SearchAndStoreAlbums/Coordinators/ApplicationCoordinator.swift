@@ -48,7 +48,7 @@ class ApplicationCoordinator: NavigationCoordinator {
         #warning("implement LocalAlbumsController inject it")
         var albums: [Album] = []
         if let cdAlbums = persister.fetchAllAlbums() {
-            albums = persister.map(cdAlbums: cdAlbums)
+            albums = Mapper.map(cdAlbums: cdAlbums)
         }
         let localAlbumsViewController = LocalAlbumsViewController(albums: albums)
         localAlbumsViewController.delegate = self
