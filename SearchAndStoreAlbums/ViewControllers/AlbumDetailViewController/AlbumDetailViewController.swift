@@ -64,6 +64,13 @@ class AlbumDetailViewController: UIViewController {
         os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
     }
     
+    // MARK: - Public methods
+    
+    func updateAlbum(isPersisted: Bool) {
+        album.isPersisted = isPersisted
+        setupView()
+    }
+    
     // MARK: - Private methods
     
     private func registerCells() {

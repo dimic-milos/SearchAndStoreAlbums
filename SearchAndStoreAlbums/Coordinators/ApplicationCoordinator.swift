@@ -82,7 +82,7 @@ class ApplicationCoordinator: NavigationCoordinator {
         detailedInfoCoordinator.start(withFlow: .AlbumDetail(album: album))
     }
     
-    #warning("when button save pressed reflect to saved")
+//    #warning("when button save pressed reflect to saved")
     #warning("update main view with saved albbums immidiately")
     #warning("change seaqrch for artist to magnifinig glass icon and use defaulot back button")
     #warning("implmet nav bar")

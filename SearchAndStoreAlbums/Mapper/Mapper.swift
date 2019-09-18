@@ -12,7 +12,7 @@ class Mapper {
     
     class func map(cdAlbums: [CDAlbum]) -> [Album] {
         os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-        #warning("extract to proper object")
+//        #warning("extract to proper object")
         var albums: [Album] = []
         cdAlbums.forEach {
             guard let albumName = $0.name else {

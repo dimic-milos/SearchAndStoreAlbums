@@ -18,6 +18,7 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     
     // MARK: - Properties
     
+    private var albumDetailViewController: AlbumDetailViewController!
     private let networkingService: NetworkingService
     private let parserService: ParserService
     private let persister: Persister
@@ -54,7 +55,7 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     private func showAlbumDetailViewController(withAlbum album: Album) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        let albumDetailViewController = AlbumDetailViewController(album: album)
+        albumDetailViewController = AlbumDetailViewController(album: album)
         albumDetailViewController.delegate = self
         show(albumDetailViewController)
     }
@@ -154,15 +155,18 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     private func insertAlbum(withName albumName: String, artistName: String, tracks: [String], image: [String]) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        _ = persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image)
+        if let _ =  persister.insertAlbum(withName: albumName, artistName: artistName, tracks: tracks, image: image) {
+            albumDetailViewController.updateAlbum(isPersisted: true)
+        }
     }
     
     private func deleteAlbum(withName albumName: String) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        _ = persister.deleteAlbum(withName: albumName)
+        if let _ = persister.deleteAlbum(withName: albumName)?.first {
+            albumDetailViewController.updateAlbum(isPersisted: false)
+        }
     }
-    
     
 }
 
