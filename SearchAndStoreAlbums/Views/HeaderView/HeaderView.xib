@@ -55,6 +55,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="buttonBack" destination="d8D-6f-7Qa" id="dF9-NV-rgE"/>
+                <outlet property="buttonSearchForArtists" destination="0pd-xt-x5Z" id="1fj-bv-m4e"/>
             </connections>
             <point key="canvasLocation" x="243.19999999999999" y="-72.863568215892059"/>
         </view>

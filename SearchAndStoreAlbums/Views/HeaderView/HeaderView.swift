@@ -11,6 +11,7 @@ import UIKit
 
 class HeaderView: UIView {
 
+    @IBOutlet weak var buttonSearchForArtists: RoundedButton!
     @IBOutlet weak var buttonBack: UIButton!
     
     // MARK: - Properties

@@ -177,7 +177,6 @@ extension DetailedInfoCoordinator: AlbumsListViewControllerDelegate {
     func showInDetail(album: Album, artistName: String, albumsListViewController: AlbumsListViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        pop()
         getTracks(forAlbum: album, artist: artistName)
     }
 
@@ -216,7 +215,6 @@ extension DetailedInfoCoordinator: AlbumDetailViewControllerDelegate {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
         pop()
-        delegate?.didFinish(self)
     }
     
     func didTapSearchForArtists(_ albumDetailViewController: AlbumDetailViewController) {

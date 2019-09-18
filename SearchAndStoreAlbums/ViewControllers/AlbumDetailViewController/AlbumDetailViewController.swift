@@ -100,6 +100,7 @@ class AlbumDetailViewController: UIViewController {
         }
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.delegate = self
+        headerView.buttonSearchForArtists.isHidden = true
         headerView.buttonBack.isHidden = false
         
         viewContainer.addSubview(headerView)
