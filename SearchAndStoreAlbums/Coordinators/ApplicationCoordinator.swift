@@ -53,9 +53,9 @@ class ApplicationCoordinator: NavigationCoordinator {
     
     private func showOfflineAlbums() {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-        #warning("implement LocalAlbumsController inject it")
+//        #warning("implement LocalAlbumsController inject it")
 
-        let localAlbumsViewController = LocalAlbumsViewController(albums: getOfflineAlbums())
+        let localAlbumsViewController = LocalAlbumsViewController(localAlbumsController: LocalAlbumsController(persister: persister))
         localAlbumsViewController.delegate = self
         rootOut(with:localAlbumsViewController)
     }

@@ -20,15 +20,16 @@ class LocalAlbumsViewController: UIViewController {
 
     private var albums: [Album] = []
     private (set) var headerView: HeaderView!
+    private let localAlbumsController: LocalAlbumsController
     
     weak var delegate: LocalAlbumsViewControllerDelegate?
     
     // MARK: - Init methods
     
-    init(albums: [Album]) {
+    init(localAlbumsController: LocalAlbumsController) {
         os_log(.info, log: .initialization, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
         
-        self.albums = albums
+        self.localAlbumsController = localAlbumsController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -66,6 +67,10 @@ class LocalAlbumsViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    
+    private func loadData() {
+        albums = localAlbumsController.getOfflineAlbums()
+    }
     
     private func registerCells() {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
