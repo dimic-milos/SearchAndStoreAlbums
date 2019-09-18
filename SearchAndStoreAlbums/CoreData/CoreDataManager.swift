@@ -43,6 +43,34 @@ class CoreDataManager: Persister {
         }
     }
     
+    func map(cdAlbums: [CDAlbum]) -> [Album] {
+        os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        var albums: [Album] = []
+        cdAlbums.forEach {
+            guard let albumName = $0.name else {
+                os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            guard let artistName = $0.artist else {
+                os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            guard let tracks = $0.tracks as? [String] else {
+                os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            guard let image = $0.image as? [String] else {
+                os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+                return
+            }
+            
+            let album = Album(name: albumName, artistName: artistName, tracks: tracks.map { Track(name: $0) }, image: image.map { AlbumImage(imageUrl: $0) }, isPersisted: true)
+            albums.append(album)
+        }
+        return albums
+    }
+    
     func fetchAllAlbums() -> [CDAlbum]? {
         os_log(.info, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
 
@@ -66,12 +94,7 @@ class CoreDataManager: Persister {
         
         fetchRequest.predicate = NSPredicate(format: "name == %@", albumName)
         do {
-            let albums = try managedContext.fetch(fetchRequest) as! [CDAlbum]
-//            var deletedAlbums: [CDAlbum] = []
-//
-//            for album in albums {
-//                deletedAlbums.append(album as! CDAlbum)
-//            }
+            let albums = try managedContext.fetch(fetchRequest) as? [CDAlbum]
             return albums
         } catch {
             os_log(.error, log: .database, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
