@@ -49,11 +49,20 @@ class LocalAlbumsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        
+        delegate?.viewWillAppear(in: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         os_log(.info, log: .ui, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+    }
+    
+    // MARK: - Public methods
+    
+    func update(withAlbums albums: [Album]) {
+        self.albums = albums
+        collectionView.reloadData()
     }
     
     // MARK: - Private methods

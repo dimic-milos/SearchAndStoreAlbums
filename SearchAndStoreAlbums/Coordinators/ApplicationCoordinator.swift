@@ -43,14 +43,19 @@ class ApplicationCoordinator: NavigationCoordinator {
     
     // MARK: - Private methods
     
-    private func showOfflineAlbums() {
-        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
-        #warning("implement LocalAlbumsController inject it")
+    private func getOfflineAlbums() -> [Album] {
         var albums: [Album] = []
         if let cdAlbums = persister.fetchAllAlbums() {
             albums = Mapper.map(cdAlbums: cdAlbums)
         }
-        let localAlbumsViewController = LocalAlbumsViewController(albums: albums)
+        return albums
+    }
+    
+    private func showOfflineAlbums() {
+        os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
+        #warning("implement LocalAlbumsController inject it")
+
+        let localAlbumsViewController = LocalAlbumsViewController(albums: getOfflineAlbums())
         localAlbumsViewController.delegate = self
         rootOut(with:localAlbumsViewController)
     }
@@ -83,7 +88,7 @@ class ApplicationCoordinator: NavigationCoordinator {
     }
     
 //    #warning("when button save pressed reflect to saved")
-    #warning("update main view with saved albbums immidiately")
+//    #warning("update main view with saved albbums immidiately")
     #warning("change seaqrch for artist to magnifinig glass icon and use defaulot back button")
     #warning("implmet nav bar")
 }
@@ -91,6 +96,10 @@ class ApplicationCoordinator: NavigationCoordinator {
 extension ApplicationCoordinator: LocalAlbumsViewControllerDelegate {
     
     // MARK: - LocalAlbumsViewControllerDelegate
+    
+    func viewWillAppear(in localAlbumsViewController: LocalAlbumsViewController) {
+        localAlbumsViewController.update(withAlbums: getOfflineAlbums())
+    }
     
     func didRequestToSearchForArtists(_ in: LocalAlbumsViewController) {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
