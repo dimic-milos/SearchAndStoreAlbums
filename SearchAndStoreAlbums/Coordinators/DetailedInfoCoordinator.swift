@@ -17,7 +17,7 @@ class DetailedInfoCoordinator: NavigationCoordinator {
     }
     
     // MARK: - Properties
-    
+    #warning("use weak for albumDetailViewController")
     private var albumDetailViewController: AlbumDetailViewController!
     private let networkingService: NetworkingService
     private let parserService: ParserService
@@ -57,6 +57,10 @@ class DetailedInfoCoordinator: NavigationCoordinator {
         
         albumDetailViewController = AlbumDetailViewController(album: album)
         albumDetailViewController.delegate = self
+        
+//        let fakeNavigationController = UINavigationController(rootViewController: albumDetailViewController)
+//        show(fakeNavigationController)
+        
         show(albumDetailViewController)
     }
     

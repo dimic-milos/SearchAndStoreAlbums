@@ -52,6 +52,7 @@ class AlbumDetailViewController: UIViewController {
         registerCells()
         setupHeaderView()
         setupView()
+        setUpNavBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +73,19 @@ class AlbumDetailViewController: UIViewController {
     }
     
     // MARK: - Private methods
+
+    @objc func action (sender: UIButton) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func setUpNavBar(){
+        navigationItem.title = "Milos"
+        let backButton = UIBarButtonItem()
+        backButton.title = "Back"
+        backButton.target = self
+        backButton.action = #selector(action)
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = backButton
+    }
     
     private func registerCells() {
         os_log(.info, log: .sequence, "function: %s, line: %i, \nfile: %s", #function, #line, #file)
